@@ -1,6 +1,7 @@
 module Api
   module V1
     class CommentsController < ApplicationController
+      protect_from_forgery with: :null_session
 
       def create
         comment = Comment.new(comment_params)
@@ -13,7 +14,7 @@ module Api
       end
 
       def destroy
-        comment = Comment.find(params[id])
+        comment = Comment.find(params[:id])
 
         if comment.destroy
           head :no_content

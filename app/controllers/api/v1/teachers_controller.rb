@@ -1,6 +1,7 @@
 module Api
   module V1
     class TeachersController < ApplicationController
+      protect_from_forgery with: :null_session
       
       def index
         teachers = Teacher.all
@@ -35,7 +36,7 @@ module Api
       def destroy
         teacher = Teacher.find_by(slug: params[:slug])
 
-        if teacher.destroy)
+        if teacher.destroy
           head :no_content
         else
           render json: { error: teacher.errors.messages }, status: 422
