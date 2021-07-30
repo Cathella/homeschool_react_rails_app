@@ -30,7 +30,7 @@ lessons = Lesson.create([
     title: "She, He and Her",
     video_url: "zal8Nmn1234",
     description: "We introduce our daily sentences.",
-    topic: "Present Speach",
+    topic: "Present Speech",
     subject: "English",
     grade: "Primary Two",
     teacher: teachers.last

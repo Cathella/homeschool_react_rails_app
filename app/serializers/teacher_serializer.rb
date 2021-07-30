@@ -1,6 +1,6 @@
 class TeacherSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :name
+  attributes :name, :slug
 
   has_many :lessons
 end
