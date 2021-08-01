@@ -9,6 +9,6 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
     end
 
-    get "*path", to: "pages#index", via: :all
+    match "*path", to: "pages#index", via: :all
   end
 end
