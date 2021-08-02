@@ -9,7 +9,7 @@ import Teacher from './Teacher/Teacher'
 const App = () => {
   return (
     <Switch>
-      <Route exact path="/" component={Lessons} />
+      <Route exact path="/" component={Home} />
       <Route exact path="/lessons" component={Lessons} />
       <Route exact path="/lessons/:slug" component={Lesson} />
       <Route exact path="/teachers" component={Teachers} />

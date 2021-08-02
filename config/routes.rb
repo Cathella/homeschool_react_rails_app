@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :reviews, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end
-
-    match "*path", to: "pages#index", via: :all
   end
+  
+  get "*path", to: "pages#index", via: :all
 end
