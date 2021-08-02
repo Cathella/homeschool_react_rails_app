@@ -31,13 +31,8 @@ const Lessons = () => {
   const [lessons, setLessons] = useState([])
 
   useEffect(() => {
-    // get all the lessons from api
-    // update lessons in our state
-
     axios.get('/api/v1/lessons.json')
-    .then( resp => {
-      setLessons(resp.data.data)
-    } )
+    .then( resp => setLessons(resp.data.data))
     .catch( resp => console.log(resp) )
   }, [lessons.length])
 

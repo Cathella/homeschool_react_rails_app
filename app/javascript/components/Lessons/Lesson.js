@@ -1,19 +1,48 @@
 import React from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+const Card = styled.div`
+`
+const LessonVideo = styled.div`
+  iframe {
+    width: 300px;
+    height: 170px;
+    border: 1px solid #fefefe;
+    border-radius: 10px;
+  }
+`
+const LessonTitle = styled.div`
+  padding: 20px 0 10px 0;
+`
+const LinkWrapper = styled.div`
+  margin: 30px 0 20px 0;
+  height: 50px;
+
+  a {
+    color: #fff;
+    background: #000;
+    border-radius: 4px;
+    padding: 10px 50px;
+    border: 1px solid #000;
+    width: 100%;
+    text-decoration: none;
+  }
+`
 
 const Lesson = (props) => {
   return(
     <div className="card">
-      <div className="lesson-video">
-        <iframe width="300" height="170"
+      <LessonVideo>
+        <iframe
           src={`https://www.youtube.com/embed/${props.attributes.video_url}`}>
         </iframe>
-      </div>
-      <div className="lesson-title">{props.attributes.title}</div>
+      </LessonVideo>
+      <LessonTitle>{props.attributes.title}</LessonTitle>
       <div className="lesson-score">{props.attributes.average_score}</div>
-      <div className="lesson-link">
+      <LinkWrapper>
         <Link to={`/lessons/${props.attributes.slug}`}>View lesson</Link>
-      </div>
+      </LinkWrapper>
     </div>
   )
 }
