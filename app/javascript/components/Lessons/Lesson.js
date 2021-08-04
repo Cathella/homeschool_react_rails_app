@@ -2,8 +2,6 @@ import React from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Card = styled.div`
-`
 const LessonVideo = styled.div`
   iframe {
     width: 300px;
@@ -16,7 +14,7 @@ const LessonTitle = styled.div`
   padding: 20px 0 10px 0;
 `
 const LinkWrapper = styled.div`
-  margin: 30px 0 20px 0;
+  margin: 20px 0 20px 0;
   height: 50px;
 
   a {

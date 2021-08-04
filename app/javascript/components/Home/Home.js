@@ -1,66 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import Logo from 'images/logo.svg'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
+import Subjects from './Subjects'
+import Grades from './Grades'
+import Menu from './Menu'
 import Child from 'images/child.svg'
-import MathsIcon from 'images/math_icon.svg'
-import EnglishIcon from 'images/english_icon.svg'
-import ScienceIcon from 'images/science_icon.svg'
-import SocialIcon from 'images/social_icon.svg'
 import FeaturesIcon from 'images/features_icon.svg'
 import Background from 'images/bg-purple.svg'
+import BackgroundBlue from 'images/bg-blue.svg'
 import Dashboard from 'images/dashboard.svg'
 import Discussion from 'images/discussion.svg'
 import Quizz from 'images/quizz.svg'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-`
-const Nav = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
-
-  a {
-    text-decoration: none;
-  }
-`
-const AppLogo = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  span {
-    text-transform: uppercase;
-    color: black;
-    font-weight: bold;
-  }
-
-  img {
-    width: 45px;
-    margin-right: 10px;
-  }
-`
-const LeftLinks = styled.div`
-  display: flex;
-  align-items: center;
-  font-size: 15px;
-
-  a {
-    color: #51535A;
-    margin-left: 15px;
-    margin-right: 15px;
-  }
-`
-const SignupBtn = styled.div`
-  font-weight: bold;
-  color: black;
-  border: 2px solid #C4C4C4;
-  box-sizing: border-box;
-  border-radius: 12px;
-  padding: 10px 20px;
 `
 const GetstartedBtn = styled.div`
   font-weight: bold;
@@ -83,16 +37,17 @@ const UpscaleBtn = styled.div`
 `
 const Header = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  // grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   column-gap: 40px;
   margin-bottom: 100px;
 
   h1 {
     font-size: 48px;
     font-weight: bold;
-    margin-top: 200px;
     line-height: 1.2;
-    letter-spacing: -2px;
+    letter-spacing: -2.5px;
   }
 
   h1 span {
@@ -100,8 +55,8 @@ const Header = styled.div`
   }
 
   img {
-    width: 600px;
-    margin: 40px 0 0 60px;
+    width: 100%;
+    // margin: 40px 0 0 60px;
   }
 
   p {
@@ -118,86 +73,16 @@ const CallToAction = styled.div`
   display: flex;
   margin-top: 20px;
 `
-const SubjectSection = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  column-gap: 35px;
-  text-align: center;
-  width: 1200px;
-  margin: 0 auto;
-  position: relative;
-`
-const MathCard = styled.div`
-  background-color: #00C0ED;
-  border-radius: 25px;
-  color: white;
-  padding: 30px 0;
-
-  img {
-    width: 40px;
-  }
-
-  p {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-`
-const ScienceCard = styled.div`
-  border-radius: 25px;
-  color: white;
-  padding: 30px 0;
-  background: linear-gradient(180deg, #FED0D4 0%, #ECC3C6 100%);
-
-  img {
-    width: 40px;
-  }
-
-  p {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-`
-const SocialCard = styled.div`
-  border-radius: 25px;
-  color: white;
-  padding: 30px 0;
-  background: linear-gradient(180deg, #FDDA5F 0%, #DBBD55 100%);
-
-  img {
-    width: 40px;
-  }
-
-  p {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-`
-const EnglishCard = styled.div`
-  border-radius: 25px;
-  color: white;
-  padding: 30px 0;
-  background: #917AEB;
-
-  img {
-    width: 40px;
-  }
-
-  p {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-`
 const BackgroundImg = styled.div`
   background-image: url(${Background});
-  height: 800px;
-  background-position: center top;
-  position: relative;
-  top: -120px;
-  z-index: -99;
+  background-position: center -30%;
+  background-repeat: no-repeat;
+  padding-bottom: 100px;
 `
-const LessonCount = styled.div`
-  font-size: 13px;
-  font-weight: bold;
+const BackgroundBlueImg = styled.div`
+  background-image: url(${BackgroundBlue});
+  background-position: center -65%;
+  background-repeat: no-repeat;
 `
 const Features = styled.div`
   position: relative;
@@ -220,18 +105,21 @@ const Features = styled.div`
 `
 const Feature = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 35px;
   position: relative;
   margin-top: 100px;
 
   img {
-    width: 600px;
+    width: 100%;
   }
 
   h2 {
     color: black;
     font-size: 35px;
+    // margin-top: 50px;
+    letter-spacing: -1px;
   }
 
   p {
@@ -245,36 +133,34 @@ const Feature = styled.div`
   }
 
 `
+const Footer = styled.div`
+  background: #917AEB;
+  text-align: center;
+  padding: 25px 0;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+`
+const RightMargin = styled.div`
+  margin-right: 30px;
+`
+const LeftMargin = styled.div`
+  margin-left: 30px;
+`
 
 const Home = () => {
   return(
     <div>
       <Container>
-        <Nav>
-          <Link to={`/`}>
-            <AppLogo>
-              <img src={Logo} />
-              <span>Homeschool</span>
-            </AppLogo>
-          </Link>
-          
-          <LeftLinks>
-            <Link to={`/`}>Teachers</Link>
-            <Link to={`/`}>Children</Link>
-            <Link to={`/lessons`}>Lessons</Link>
-            <Link to={`/`}>
-              <SignupBtn>Signup</SignupBtn>
-            </Link>
-          </LeftLinks>
-        </Nav>
-
+        <Menu />
         <Header>
           <div>
-            <h1>
-              Organized video lessons for your child’s learning<span>.</span>
-            </h1>
-            <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
-            <CallToAction>
+            <RightMargin>
+              <h1>
+                Organized video lessons for your child’s learning<span>.</span>
+              </h1>
+              <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
+              <CallToAction>
               <Link to={``}>
                 <GetstartedBtn>Get started</GetstartedBtn> 
               </Link>
@@ -282,6 +168,7 @@ const Home = () => {
                 <UpscaleBtn>Upscale</UpscaleBtn>
               </Link>
             </CallToAction>
+            </RightMargin>
           </div>
           <div>
             <img src={Child} />
@@ -289,88 +176,91 @@ const Home = () => {
         </Header>
       </Container>
 
-      <SubjectSection>
-          <MathCard>
-            <img src={MathsIcon} />
-            <p>Mathematics</p>
-            <LessonCount>100+ Lessons</LessonCount>
-          </MathCard>
-          <ScienceCard>
-            <img src={ScienceIcon} />
-            <p>Science</p>
-            <LessonCount>100+ Lessons</LessonCount>
-          </ScienceCard>
-          <SocialCard>
-            <img src={SocialIcon} />
-            <p>Social studies</p>
-            <LessonCount>100+ Lessons</LessonCount>
-          </SocialCard>
-          <EnglishCard>
-            <img src={EnglishIcon} />
-            <p>English</p>
-            <LessonCount>100+ Lessons</LessonCount>
-          </EnglishCard>
-      </SubjectSection>
+      <BackgroundImg>
+        <Subjects />
 
-      <Features>
-        <h2>
-          <img src={FeaturesIcon} />
-          <span>Features</span>
-        </h2>
+        <Features>
+          <h2>
+            <img src={FeaturesIcon} />
+            <span>Features</span>
+          </h2>
+        </Features>
 
         <Container>
           <Feature>
             <div>
-              <h2>
-                Customized dashboard to show learning progress
-              </h2>
-              <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
-              <CallToAction>
-                <Link to={``}>
-                  <GetstartedBtn>Register Child</GetstartedBtn> 
-                </Link>
-              </CallToAction>
+              <RightMargin>
+                <h2>
+                  Customized dashboard to show learning progress
+                </h2>
+                <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
+                <CallToAction>
+                  <Link to={``}>
+                    <GetstartedBtn>Register a Child</GetstartedBtn> 
+                  </Link>
+                </CallToAction>
+              </RightMargin>
             </div>
             <div>
-              <img src={Dashboard} />
+                <img src={Dashboard} />
             </div>
           </Feature>
+        </Container>
+      </BackgroundImg>
 
-          <Feature>
-            <div>
+      <Container>
+        <Feature>
+          <div>
               <img src={Discussion} />
-            </div>
-            <div>
+          </div>
+          <div>
+            <LeftMargin>
               <h2>
-                Customized dashboard to show learning progress
+                Live Discussions about a topic or completed lesson
               </h2>
-              <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
+              <p>Start a discussion about a topic or a lesson you just watched.</p>
               <CallToAction>
                 <Link to={``}>
                   <GetstartedBtn>Become a Teacher</GetstartedBtn> 
                 </Link>
               </CallToAction>
-            </div>
-          </Feature>
+            </LeftMargin>
+          </div>
+        </Feature>
+      </Container>
 
+      <BackgroundBlueImg>
+        <Container>
           <Feature>
             <div>
-              <h2>
-                Customized dashboard to show learning progress
-              </h2>
-              <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
-              <CallToAction>
-                <Link to={``}>
-                  <GetstartedBtn>Attempt Quiz</GetstartedBtn> 
-                </Link>
-              </CallToAction>
+              <RightMargin>
+                <h2>
+                  Test examinations and Quizzes
+                </h2>
+                <p>Students can try out practise examinations to know how much they have learned.</p>
+                <CallToAction>
+                  <Link to={``}>
+                    <GetstartedBtn>Attempt Quizzes</GetstartedBtn> 
+                  </Link>
+                </CallToAction>
+              </RightMargin>
             </div>
             <div>
               <img src={Quizz} />
             </div>
           </Feature>
         </Container>
-      </Features>
+
+        <Features>
+          <h2>Popular Lessons</h2>
+        </Features>
+
+        <Grades />
+      </BackgroundBlueImg>
+
+      <Footer>
+        All Rights Reserved. © 2021 Homeschool - UG
+      </Footer>
     </div>
   )
 }
