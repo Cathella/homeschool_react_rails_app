@@ -33,7 +33,6 @@ const LeftLinks = styled.div`
   display: flex;
   align-items: center;
   font-size: 15px;
-  font-weight: bold;
 
   a {
     color: #51535A;

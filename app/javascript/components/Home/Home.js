@@ -106,7 +106,6 @@ const CallToAction = styled.div`
   display: flex;
   margin-top: 40px;
   margin-bottom: 50px;
-  // margin-top: 20px;
 `
 const BackgroundImg = styled.div`
   background-image: url(${Background});
@@ -168,9 +167,6 @@ const Features = styled.div`
 const Feature = styled.div`
   display: grid;
   align-items: center;
-  // grid-template-columns: repeat(2, 1fr);
-  // column-gap: 35px;
-  // position: relative;
 
   @media (min-width: 1100px) {
     grid-template-columns: repeat(2, 1fr);
@@ -185,7 +181,6 @@ const Feature = styled.div`
   h2 {
     color: black;
     font-size: 25px;
-    // margin-top: 50px;
 
     @media (min-width: 600px) {
       letter-spacing: -1px;

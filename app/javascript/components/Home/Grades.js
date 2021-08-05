@@ -18,10 +18,12 @@ const Grade = styled.div`
 
   @media (min-width: 600px) {
     grid-template-columns: repeat(4, 1fr);
+    column-gap: 3px;
   }
 
   @media (min-width: 900px) {
     grid-template-columns: repeat(5, 1fr);
+    column-gap: 3px;
   }
 `
 
@@ -32,13 +34,13 @@ const Grades = () => {
         <img src={P1} />
       </div>
       <div>
+        <img src={P4} />
+      </div>
+      <div>
         <img src={P2} />
       </div>
       <div>
         <img src={P3} />
-      </div>
-      <div>
-        <img src={P4} />
       </div>
       <div>
         <img src={P5} />
