@@ -8,42 +8,50 @@ import SocialIcon from 'images/social_icon.svg'
 const SubjectSection = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(4, 1fr);
-  // grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
-  column-gap: 35px;
   text-align: center;
-  width: 1100px;
-  margin: 0 auto;
-  position: relative;
+
+  @media (min-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+  }
+
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 35px;
+  }
 `
 const Card = styled.div`
   color: white;
   padding: 30px 0;
 
   img {
-    width: 40px;
+    height: 40px;
   }
-
-  p {
-    text-transform: uppercase;
-    font-weight: bold;
-  }
+`
+const SubjectName = styled.div`
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 12px 0;
 `
 const MathCard = styled.div`
   background-color: #00C0ED;
   border-radius: 20px;
+  margin-bottom: 20px;
 `
 const ScienceCard = styled.div`
   background: linear-gradient(180deg, #FED0D4 0%, #ECC3C6 100%);
   border-radius: 20px;
+  margin-bottom: 20px;
 `
 const SocialCard = styled.div`
   background: linear-gradient(180deg, #FDDA5F 0%, #DBBD55 100%);
   border-radius: 20px;
+  margin-bottom: 20px;
 `
 const EnglishCard = styled.div`
   background: #917AEB;
   border-radius: 20px;
+  margin-bottom: 20px;
 `
 const LessonCount = styled.div`
   font-size: 13px;
@@ -56,28 +64,28 @@ const Subjects = () => {
       <MathCard>
         <Card>
           <img src={MathsIcon} />
-          <p>Mathematics</p>
+          <SubjectName>Mathematics</SubjectName>
           <LessonCount>100+ Lessons</LessonCount>
         </Card>
       </MathCard>
       <ScienceCard>
         <Card>
           <img src={ScienceIcon} />
-          <p>Science</p>
+          <SubjectName>Science</SubjectName>
           <LessonCount>100+ Lessons</LessonCount>
         </Card>
       </ScienceCard>
       <SocialCard>
         <Card>
           <img src={SocialIcon} />
-          <p>Social studies</p>
+          <SubjectName>Social studies</SubjectName>
           <LessonCount>100+ Lessons</LessonCount>
         </Card>
       </SocialCard>
       <EnglishCard>
         <Card>
           <img src={EnglishIcon} />
-          <p>English</p>
+          <SubjectName>English</SubjectName>
           <LessonCount>100+ Lessons</LessonCount>
         </Card>
       </EnglishCard>

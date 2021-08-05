@@ -15,6 +15,23 @@ import Quizz from 'images/quizz.svg'
 const Container = styled.div`
   max-width: 1100px;
   margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  @media (min-width: 600px) {
+    width: 500px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @media (min-width: 900px) {
+    width: 600px;
+  }
+
+  @media (min-width: 1100px) {
+    width: 1100px;
+    max-width: 1100px;
+  }
 `
 const GetstartedBtn = styled.div`
   font-weight: bold;
@@ -38,16 +55,28 @@ const UpscaleBtn = styled.div`
 const Header = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
-  // grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  column-gap: 40px;
   margin-bottom: 100px;
 
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    padding-top: 60px;
+  }
+
   h1 {
-    font-size: 48px;
+    font-size: 30px;
     font-weight: bold;
     line-height: 1.2;
-    letter-spacing: -2.5px;
+    margin-top: 40px;
+    
+    @media (min-width: 600px) {
+      letter-spacing: -2.5px;
+      font-size: 48px;
+    }
+
+    @media (min-width: 1100px) {
+      margin-top: 0;
+    }
   }
 
   h1 span {
@@ -56,7 +85,11 @@ const Header = styled.div`
 
   img {
     width: 100%;
-    // margin: 40px 0 0 60px;
+    margin-top: 60px;
+
+    @media (min-width: 1100px) {
+      margin-top: 0;
+    }
   }
 
   p {
@@ -71,31 +104,60 @@ const Header = styled.div`
 `
 const CallToAction = styled.div`
   display: flex;
-  margin-top: 20px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+  // margin-top: 20px;
 `
 const BackgroundImg = styled.div`
   background-image: url(${Background});
-  background-position: center -30%;
   background-repeat: no-repeat;
   padding-bottom: 100px;
+  background-position: center 15%;
+
+  @media (min-width: 500px) {
+    background-position: center 80%;
+  }
+
+  @media (min-width: 600px) {
+    background-position: center 40%;
+  }
+
+  @media (min-width: 1100px) {
+    background-position: center -20%;
+  }
 `
 const BackgroundBlueImg = styled.div`
   background-image: url(${BackgroundBlue});
-  background-position: center -65%;
+  background-position: center 20%;
   background-repeat: no-repeat;
+
+  @media (min-width: 500px) {
+    background-position: center 85%;
+  }
+
+  @media (min-width: 1100px) {
+    background-position: center -35%;
+  }
 `
 const Features = styled.div`
-  position: relative;
-  margin-top: 100px;
+  margin-top: 40px;
+
+  @media (min-width: 1100px) {
+    margin-top: 80px;
+  }
 
   h2 {
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 30px;
-    letter-spacing: -1px;
+    font-size: 25px;
     color: #753CBC;
+
+    @media (min-width: 600px) {
+      letter-spacing: -1px;
+      font-size: 30px;
+    }
   }
 
   h2 img {
@@ -106,10 +168,15 @@ const Features = styled.div`
 const Feature = styled.div`
   display: grid;
   align-items: center;
-  grid-template-columns: repeat(2, 1fr);
-  column-gap: 35px;
-  position: relative;
-  margin-top: 100px;
+  // grid-template-columns: repeat(2, 1fr);
+  // column-gap: 35px;
+  // position: relative;
+
+  @media (min-width: 1100px) {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 40px;
+    margin-top: 100px;
+  }
 
   img {
     width: 100%;
@@ -117,9 +184,13 @@ const Feature = styled.div`
 
   h2 {
     color: black;
-    font-size: 35px;
+    font-size: 25px;
     // margin-top: 50px;
-    letter-spacing: -1px;
+
+    @media (min-width: 600px) {
+      letter-spacing: -1px;
+      font-size: 35px;
+    }
   }
 
   p {
@@ -142,10 +213,14 @@ const Footer = styled.div`
   font-weight: bold;
 `
 const RightMargin = styled.div`
-  margin-right: 30px;
+  @media (min-width: 1100px) {
+    margin-right: 30px;
+  }
 `
 const LeftMargin = styled.div`
-  margin-left: 30px;
+  @media (min-width: 1100px) {
+    margin-left: 30px;
+  }
 `
 
 const Home = () => {
@@ -162,7 +237,7 @@ const Home = () => {
               <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
               <CallToAction>
               <Link to={``}>
-                <GetstartedBtn>Get started</GetstartedBtn> 
+                <GetstartedBtn>Get&nbsp;started</GetstartedBtn> 
               </Link>
               <Link to={``}>
                 <UpscaleBtn>Upscale</UpscaleBtn>
@@ -177,7 +252,9 @@ const Home = () => {
       </Container>
 
       <BackgroundImg>
-        <Subjects />
+        <Container>
+          <Subjects />
+        </Container>
 
         <Features>
           <h2>
