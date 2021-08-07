@@ -17,6 +17,7 @@ const Container = styled.div`
   margin: 0 auto;
   padding-left: 40px;
   padding-right: 40px;
+  text-align: center;
 
   @media (min-width: 600px) {
     width: 500px;
@@ -25,12 +26,13 @@ const Container = styled.div`
   }
 
   @media (min-width: 900px) {
-    width: 600px;
+    width: 700px;
   }
 
   @media (min-width: 1100px) {
     width: 1100px;
     max-width: 1100px;
+    text-align: left;
   }
 `
 const GetstartedBtn = styled.div`
@@ -106,6 +108,11 @@ const CallToAction = styled.div`
   display: flex;
   margin-top: 40px;
   margin-bottom: 50px;
+  justify-content: center;
+
+  @media (min-width: 1100px) {
+    justify-content: start;
+  }
 `
 const BackgroundImg = styled.div`
   background-image: url(${Background});

@@ -1,16 +1,80 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { NavLink as Link } from 'react-router-dom'
 import Logo from 'images/logo.svg'
+import Bar from 'images/menu-1.svg'
 
-const Nav = styled.div`
+const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  justify-content: space-between;
+  height: 80px;
+  z-index: 10;
+`
+const NavLink = styled(Link)`
+  color: #51535A;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 1rem;
+  cursor: pointer;
 
-  a {
-    text-decoration: none;
+  &.active {
+    color: #15cdfc;
+  }
+`
+const Bars = styled.div`
+  display: none;
+  color: #51535A;
+
+  img {
+    width: 40px;
+    margin: -24px -35px 0 0;
+  }
+
+  @media screen and (max-width: 900px) {
+    display: inline-block;
+    transform: translate(-100%, 75%);
+    cursor: pointer;
+  }
+`
+const NavMenu = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: -24px;
+
+  @media screen and (max-width: 900px) {
+    display: none;
+  }
+`
+const NavBtn = styled.nav`
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`
+const NavBtnLink = styled(Link)`
+  font-weight: bold;
+  color: black;
+  border: 2px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 14px 30px;
+  background: transparent;
+
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #FA64A9;
+    color: #FFFFFF;
+    border: none;
   }
 `
 const AppLogo = styled.div`
@@ -40,35 +104,32 @@ const LeftLinks = styled.div`
     margin-right: 20px;
   }
 `
-const UpscaleBtn = styled.div`
-  font-weight: bold;
-  color: black;
-  border: 2px solid #C4C4C4;
-  box-sizing: border-box;
-  border-radius: 10px;
-  padding: 14px 30px;
-  background: transparent;
-`
+
 
 const Menu = () => {
   return(
     <Nav>
-          <Link to={`/`}>
-            <AppLogo>
-              <img src={Logo} />
-              <span>Homeschool</span>
-            </AppLogo>
-          </Link>
-          
-          <LeftLinks>
-            <Link to={`/`}>Teachers</Link>
-            <Link to={`/`}>Children</Link>
-            <Link to={`/lessons`}>Lessons</Link>
-            <Link to={`/`}>
-              <UpscaleBtn>Signup</UpscaleBtn>
-            </Link>
-          </LeftLinks>
-        </Nav>
+      <NavLink to={`/`}>
+        <AppLogo>
+          <img src={Logo} />
+          <span>Homeschool</span>
+        </AppLogo>
+      </NavLink>
+      <Bars>
+        <img src={Bar} />
+      </Bars>
+      <NavMenu>
+        <NavLink to={`/teachers`}>
+          Teachers
+        </NavLink>
+        <NavLink to={`/lessons`}>
+          Children
+        </NavLink>
+        <NavBtn>
+          <NavBtnLink to={`/`}>Sign&nbsp;up</NavBtnLink>
+        </NavBtn>
+      </NavMenu>
+    </Nav>
   )
 }
 
