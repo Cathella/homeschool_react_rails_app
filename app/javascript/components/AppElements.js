@@ -252,7 +252,7 @@ export const NavLink = styled(Link)`
   cursor: pointer;
 
   &.active {
-    color: #15cdfc;
+    color: #FA64A9;
   }
 `
 export const Bars = styled.div`
@@ -273,7 +273,6 @@ export const Bars = styled.div`
 export const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-right: -24px;
 
   @media screen and (max-width: 900px) {
     display: none;
@@ -377,6 +376,15 @@ export const LessonCount = styled.div`
   font-size: 13px;
   font-weight: bold;
 `
+export const LessonVideo = styled.div`
+  iframe {
+    width: 100%;
+    height: 190px;
+    border: 1px solid #fefefe;
+    border-radius: 10px;
+  }
+`
+
 
 const AppElements = () => {
   return(

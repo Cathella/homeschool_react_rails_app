@@ -60,7 +60,7 @@ const Home = () => {
                 <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
                 <CallToAction>
                   <Link to={``}>
-                    <GetstartedBtn>Register a Child</GetstartedBtn> 
+                    <GetstartedBtn>Register a Student</GetstartedBtn> 
                   </Link>
                 </CallToAction>
               </RightMargin>
@@ -85,7 +85,7 @@ const Home = () => {
               <p>Start a discussion about a topic or a lesson you just watched.</p>
               <CallToAction>
                 <Link to={``}>
-                  <GetstartedBtn>Become a Teacher</GetstartedBtn> 
+                  <GetstartedBtn>Join Discussions</GetstartedBtn> 
                 </Link>
               </CallToAction>
             </LeftMargin>

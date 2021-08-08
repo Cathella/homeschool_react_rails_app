@@ -2,13 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Lesson from './Lesson'
 import styled from 'styled-components'
+import { Container } from '../AppElements'
 import Menu from '../Home/Menu'
 
-const Container = styled.div`
-  text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-`
 const Header = styled.div`
   padding: 50px 0 50px 0px;
   background: #EEE6FD;
@@ -25,8 +21,8 @@ const Subheader = styled.div`
 `
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 35px;
   width: 100%;
 `
 
