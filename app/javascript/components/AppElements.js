@@ -381,10 +381,71 @@ export const LessonVideo = styled.div`
     width: 100%;
     height: 190px;
     border: 1px solid #fefefe;
-    border-radius: 10px;
+    border-radius: 10px 10px 0 0;
   }
 `
+export const Subheader = styled.div`
+  font-weight: 300;
+  font-size: 22px;
+`
+export const Tag = styled.div`
+  text-decoration: none;
+  font-size: 13px;
+  background: #ffa4ce;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 4px;
+  margin: 0 2px 3px;
+`
+export const SearchTags = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 10px auto 0;
+  flex-wrap: wrap;
+  width: 65%;
 
+  a {
+    text-decoration: none;
+  }
+`
+export const SearchForm = styled.div`
+  margin: 20px 0 15px;
+
+  form {
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+    width: 60%;
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    width: 97%;
+    height: 47px;
+    margin: 0 auto;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+    padding-left: 15px;
+    background-color: #FDF8F9;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.03);
+  }
+
+  button {
+    height: 45px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 17px;
+    font-weight: bold;
+    background: #00c0ed;
+    position: absolute;
+    color: white;
+    right: 4.2px;
+    cursor: pointer;
+  }
+`
 
 const AppElements = () => {
   return(
