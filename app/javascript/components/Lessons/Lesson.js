@@ -32,6 +32,11 @@ const About = styled.div`
   display: flex;
   align-items: center;
   padding: 0 12px 10px;
+
+  div {
+    background: #ffa4ce;
+    color: black;
+  }
 `
 
 const Lesson = (props) => {

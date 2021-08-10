@@ -253,6 +253,7 @@ export const NavLink = styled(Link)`
 
   &.active {
     color: #FA64A9;
+    font-weight: bold;
   }
 `
 export const Bars = styled.div`
@@ -391,7 +392,7 @@ export const Subheader = styled.div`
 export const Tag = styled.div`
   text-decoration: none;
   font-size: 13px;
-  background: #ffa4ce;
+  background: #00c0ed;
   color: white;
   padding: 2px 10px;
   border-radius: 4px;
@@ -437,9 +438,9 @@ export const SearchForm = styled.div`
     border: none;
     border-radius: 10px;
     padding: 0 20px;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: bold;
-    background: #00c0ed;
+    background: #fa64a9;
     position: absolute;
     color: white;
     right: 4.2px;
