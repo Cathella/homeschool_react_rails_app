@@ -389,8 +389,8 @@ export const LessonVideo = styled.div`
 export const Video = styled.div`
   iframe {
     width: 100%;
-    height: 350px;
-    margin: 20px auto 10px;
+    height: 380px;
+    margin: 15px auto 10px;
     border: 1px solid #fefefe;
     border-radius: 10px;
   }

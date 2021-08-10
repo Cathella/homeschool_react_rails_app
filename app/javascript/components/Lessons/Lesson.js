@@ -23,6 +23,9 @@ const Card = styled.div`
   background: #eee6fd;
   border-radius: 10px;
 `
+const ContentPad = styled.div`
+  padding: 0 12px;
+`
 
 const Lesson = (props) => {
   return(
@@ -32,12 +35,14 @@ const Lesson = (props) => {
           src={`https://www.youtube.com/embed/${props.attributes.video_url}`}>
         </iframe>
       </LessonVideo>
-      <LessonTitle>{props.attributes.title}</LessonTitle>
-      <About>
-        <Tag>{props.attributes.subject}</Tag>
-        <Tag>{props.attributes.grade}</Tag>
-        <Tag>{props.attributes.topic}</Tag>
-      </About>
+      <ContentPad>  
+        <LessonTitle>{props.attributes.title}</LessonTitle>
+        <About>
+          <Tag>{props.attributes.subject}</Tag>
+          <Tag>{props.attributes.grade}</Tag>
+          <Tag>{props.attributes.topic}</Tag>
+        </About>
+      </ContentPad> 
       <LinkWrapper>
         <div className="lesson-score">Review score: {props.attributes.average_score}</div>
         <Link to={`/lessons/${props.attributes.slug}`}>
