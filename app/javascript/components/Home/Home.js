@@ -9,6 +9,7 @@ import FeaturesIcon from 'images/features_icon.svg'
 import Dashboard from 'images/dashboard.svg'
 import Discussion from 'images/discussion.svg'
 import Quizz from 'images/quizz.svg'
+import FooterSection from './Footer'
 
 const Home = () => {
   return(
@@ -122,9 +123,7 @@ const Home = () => {
         <Grades />
       </BackgroundBlueImg>
 
-      <Footer>
-        All Rights Reserved. © 2021 Homeschool - UG
-      </Footer>
+      <FooterSection />
     </div>
   )
 }

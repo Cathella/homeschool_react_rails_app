@@ -1,13 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
-import { LessonVideo, Tag } from '../AppElements'
+import { LessonVideo, Tag, LessonTitle, About } from '../AppElements'
 import styled from 'styled-components'
 
-const LessonTitle = styled.div`
-  padding: 10px 12px 10px;
-  font-size: 14px;
-  font-weight: bold;
-`
 const LinkWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -27,16 +22,6 @@ const LinkWrapper = styled.div`
 const Card = styled.div`
   background: #eee6fd;
   border-radius: 10px;
-`
-const About = styled.div`
-  display: flex;
-  align-items: center;
-  padding: 0 12px 10px;
-
-  div {
-    background: #ffa4ce;
-    color: black;
-  }
 `
 
 const Lesson = (props) => {

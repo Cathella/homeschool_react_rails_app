@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { Container, Features, LessonCount, Tag, Subheader, SearchTags, SearchForm } from '../AppElements'
 import Menu from '../Home/Menu'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
+import FooterSection from '../Home/Footer'
 
 const Header = styled.div`
   padding: 70px 0 50px 0px;
@@ -19,6 +20,7 @@ const Grid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 35px;
   width: 100%;
+  margin-bottom: 50px;
 `
 
 const Lessons = () => {
@@ -40,6 +42,7 @@ const Lessons = () => {
   })
 
   return(
+    <div>
     <Container>
       <Menu />
       <Header>
@@ -73,6 +76,8 @@ const Lessons = () => {
         {grid}
       </Grid>
     </Container>
+    <FooterSection />
+    </div>
   )
 }
 

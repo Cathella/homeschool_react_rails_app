@@ -313,6 +313,7 @@ export const AppLogo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: -15px;
 
   span {
     text-transform: uppercase;
@@ -385,6 +386,15 @@ export const LessonVideo = styled.div`
     border-radius: 10px 10px 0 0;
   }
 `
+export const Video = styled.div`
+  iframe {
+    width: 100%;
+    height: 350px;
+    margin: 20px auto 10px;
+    border: 1px solid #fefefe;
+    border-radius: 10px;
+  }
+`
 export const Subheader = styled.div`
   font-weight: 300;
   font-size: 22px;
@@ -445,6 +455,21 @@ export const SearchForm = styled.div`
     color: white;
     right: 4.2px;
     cursor: pointer;
+  }
+`
+export const LessonTitle = styled.div`
+  padding: 10px 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+`
+export const About = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0 0 10px;
+
+  div {
+    background: #ffa4ce;
+    color: black;
   }
 `
 
