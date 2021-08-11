@@ -40,6 +40,30 @@ const Lesson = (props) => {
     .catch( resp => console.log(resp) )
   }, [])
 
+  const handleChange = (e) => {
+    e.preventDefault()
+
+    setReview(Object.assign({}, review, {[e.target.name]: e.target.value}))
+
+    console.log('review:', review)
+  }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    const csrfToken = document.querySelector('[name=csrf-token]').content
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
+
+    const lesson_id = lesson.data.id
+    axios.post('/api/v1/reviews', {review, lesson_id})
+    .then( resp => {
+      const included = [...lesson.included, resp.data]
+      setLesson({...lesson.included})
+      setReview({title: '', description: '', score: 0})
+    })
+    .catch( resp => {} )
+  }
+
   return(
     <div>
       <Container>
@@ -57,7 +81,12 @@ const Lesson = (props) => {
                 {/* <div className="reviews"></div> */}
               </Column>
               <Column>
-                <ReviewForm />
+                <ReviewForm
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                  attributes={lesson.data.attributes}
+                  review={review}
+                />
               </Column>
             </Fragment>
           }

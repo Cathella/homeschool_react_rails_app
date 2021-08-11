@@ -50,7 +50,7 @@ module Api
       end
 
       def options
-        @options ||= { include: %i[reviews comments] }
+        @options ||= { include: %i[reviews] }
       end
     end
   end
