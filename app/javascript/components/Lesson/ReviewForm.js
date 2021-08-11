@@ -12,18 +12,15 @@ const RatingContainer = styled.div`
   border: 1px solid #e6e6e6;
   background: #ffffff;
 `
-const RatingTitle = styled.div`
-  
-`
 const RatingBox = styled.div`
   background: #ffffff;
   display: flex;
   justify-content: center;
   flex-direction: row-reverse;
-  position: relative
+  position: relative;
 
   input { 
-    display:none
+    display:none;
   }
 
   label {
@@ -31,6 +28,9 @@ const RatingBox = styled.div`
     width: 40px;
     height: 40px;
     background-image: url("data:image/svg+xml;charset=UTF-8,${Gray}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
   }
 
   input:checked ~ label,
@@ -38,46 +38,103 @@ const RatingBox = styled.div`
     background-image: url("data:image/svg+xml;charset=UTF-8,${Selected}");
   }
 
-  input:not(:checked) ~ label,
-  input:not(:checked) ~ label ~ label {
+  input:not(:checked) ~ label:hover,
+  input:not(:checked) ~ label:hover ~ label {
     background-image: url("data:image/svg+xml;charset=UTF-8,${Hover}");
   }
+`
+const RatingTitle = styled.div`
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 20px;
+`
+const Field = styled.div` 
+  // border-radius: 4px;
+  width: 100%;
+
+  input {
+    min-height: 50px;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    margin: 12px 0;
+    padding: 10px 12px;
+    width: 93%;
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 80px;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    margin: 12px 0;
+    padding: 12px;
+    width: 100%;
+  }
+`
+const Wrapper = styled.div`
+  background: #333333;
+  padding: 20px;
+  height: 100vh;
+  // padding-top: 100px;
+`
+const SubmitBtn = styled.button`
+  color: #ffffff;
+  background: #333333;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: ease-in-out 0.1s;
+  border: 1px solid #333333;
+  width: 100%;
+  margin-top: 30px;
+
+  &:hover {
+    background: #ffffff;
+    color: #333333;
+    border: 1px solid #ffffff;
+  }
+`
+const Headline = styled.div`
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
 `
 
 const ReviewForm = (props) => {
   const ratingOptions = [5, 4, 3, 2, 1].map((score, index) => {
     return(
       <Fragment>
-        <input type="radio" value={score} name="rating" onChange={() => console.log('selected:', score)} id={`rating-${score}`} />
-        <label></label>
+        <input type="radio" value={score} checked={props.review.score == score} name="rating" onChange={() => console.log('selected:', score)} id={`rating-${score}`} />
+        <label onCLick={props.setRating.bind(this, score)}></label>
       </Fragment>
     )
   })
 
   return(
-    <div className="wrapper">
+    <Wrapper>
       <form onSubmit={props.handleSubmit}>
-        <div>
+        <Headline>
           Have an experience with {props.attributes.title}? 
           Share your review!
-        </div>
-        <div className="field">
+        </Headline>
+        <Field>
           <input onChange={props.handleChange} value={props.review.title} type="text" name="title" placeholder="Review Title" />
-        </div>
-        <div className="field">
+        </Field>
+        <Field>
           <input onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Review TDescription" />
-        </div>
-        <div className="field">
+        </Field>
+        <Field>
           <RatingContainer>
-            <div className="rating-title-text">Rate this Lesson</div>
-            <div className="rating-box">
+            <RatingTitle>Rate this Lesson</RatingTitle>
+            <RatingBox>
               {ratingOptions}
-            </div>
+            </RatingBox>
           </RatingContainer>
-        </div>
-        <button type="submit">Submit Your Review</button>
+        </Field>
+        <SubmitBtn type="submit">Submit Your Review</SubmitBtn>
       </form>
-    </div>
+    </Wrapper>
   )
 }
 

@@ -6,6 +6,11 @@ body {
   margin: 0;
 }
 
+form {
+  padding: 0;
+  margin: 0;
+}
+
 * {
   font-family: 'Lexend', sans-serif;
 }
