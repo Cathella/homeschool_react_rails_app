@@ -58,7 +58,7 @@ const Lesson = (props) => {
     axios.post('/api/v1/reviews', {review, lesson_id})
     .then( resp => {
       const included = [...lesson.included, resp.data]
-      setLesson({...lesson.included})
+      setLesson({...lesson, included})
       setReview({title: '', description: '', score: 0})
     })
     .catch( resp => {} )
@@ -66,7 +66,6 @@ const Lesson = (props) => {
 
   const setRating = (score, e) => {
     e.preventDefault()
-
     setReview({...review, score})
   }
 

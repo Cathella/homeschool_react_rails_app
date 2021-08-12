@@ -11,6 +11,7 @@ const RatingContainer = styled.div`
   padding: 40px 0 10px 0;
   border: 1px solid #e6e6e6;
   background: #ffffff;
+  margin: 12px 0;
 `
 const RatingBox = styled.div`
   background: #ffffff;
@@ -47,6 +48,7 @@ const RatingTitle = styled.div`
   font-size: 20px;
   font-weight: bold;
   padding-bottom: 20px;
+  // text-align: center;
 `
 const Field = styled.div` 
   // border-radius: 4px;
@@ -56,8 +58,8 @@ const Field = styled.div`
     min-height: 50px;
     border-radius: 4px;
     border: 1px solid #e6e6e6;
-    margin: 12px 0;
-    padding: 10px 12px;
+    margin: 12px auto;
+    padding: 0px 12px;
     width: 93%;
   }
 
@@ -72,10 +74,9 @@ const Field = styled.div`
   }
 `
 const Wrapper = styled.div`
-  background: #333333;
   padding: 20px;
   height: 100vh;
-  // padding-top: 100px;
+  text-align: center;
 `
 const SubmitBtn = styled.button`
   color: #ffffff;
@@ -87,7 +88,7 @@ const SubmitBtn = styled.button`
   transition: ease-in-out 0.1s;
   border: 1px solid #333333;
   width: 100%;
-  margin-top: 30px;
+  // margin-top: 30px;
 
   &:hover {
     background: #ffffff;
@@ -115,14 +116,13 @@ const ReviewForm = (props) => {
     <Wrapper>
       <form onSubmit={props.handleSubmit}>
         <Headline>
-          Have an experience with {props.attributes.title}? 
-          Share your review!
+          How did you find this lesson? Share your review!
         </Headline>
         <Field>
-          <input onChange={props.handleChange} value={props.review.title} type="text" name="title" placeholder="Review Title" />
+          <input onChange={props.handleChange} value={props.review.title} type="text" name="title" placeholder="Title" />
         </Field>
         <Field>
-          <input onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Review TDescription" />
+          <input onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Leave a comment" />
         </Field>
         <Field>
           <RatingContainer>
