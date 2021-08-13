@@ -20,7 +20,7 @@ const Menu = () => {
           Teachers
         </NavLink>
         <NavLink to={`/lessons`}>
-          Children
+          Lessons
         </NavLink>
         <NavBtn>
           <NavBtnLink to={`/`}>Sign&nbsp;up</NavBtnLink>

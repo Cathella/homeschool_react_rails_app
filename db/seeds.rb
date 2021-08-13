@@ -23,8 +23,7 @@ lessons = Lesson.create([
     description: "In this lesson, we introduce and define fractions.",
     topic: "Fractions",
     subject: "Mathematics",
-    grade: "Primary One",
-    teacher: teachers.first
+    grade: "Primary One"
   },
   {
     title: "She, He and Her",
@@ -32,50 +31,33 @@ lessons = Lesson.create([
     description: "We introduce our daily sentences.",
     topic: "Present Speech",
     subject: "English",
-    grade: "Primary Two",
-    teacher: teachers.last
+    grade: "Primary Two"
   },
   {
     title: "Introduction to Sets",
     video_url: "zalaghjin7UYs",
     description: "Learning set basics and applications.",
-    topic: "Se Notation",
+    topic: "Set Notation",
     subject: "Mathematics",
-    grade: "Primary Seven",
-    teacher: teachers.first
+    grade: "Primary Seven"
   },
 ])
 
 reviews = Review.create([
   {
-    title: "Interesting lesson",
     description: "Great audio and video",
     score: 5,
     lesson: lessons.first
   },
   {
-    title: "Bad lesson",
     description: "Never liked it at all",
     score: 1,
     lesson: lessons.first
   },
   {
-    title: "Fair lesson",
     description: "Well, average stuff",
     score: 3,
     lesson: lessons.last
   },
 ])
 
-comments = Comment.create([
-  {
-    body: "Best lesson about this topic",
-    author: "Jenny Ali",
-    lesson: lessons.first
-  },
-  {
-    body: "Seen something good today",
-    author: "Kataline H",
-    lesson: lessons.first
-  }
-])

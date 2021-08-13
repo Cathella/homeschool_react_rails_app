@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Lesson from './Lesson'
 import styled from 'styled-components'
-import { Container, Features, LessonCount, Tag, Subheader, SearchTags, SearchForm } from '../AppElements'
+import { Container, Features, NavSection, LessonCount, Tag, Subheader, SearchTags, SearchForm } from '../AppElements'
 import Menu from '../Home/Menu'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import FooterSection from '../Home/Footer'
@@ -13,7 +13,7 @@ const Header = styled.div`
   color: white;
   border-radius: 10px;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 50px;
 `
 const Grid = styled.div`
   display: grid;
@@ -43,8 +43,12 @@ const Lessons = () => {
 
   return(
     <div>
+    <NavSection>
+      <Container>
+        <Menu />
+      </Container>
+    </NavSection>
     <Container>
-      <Menu />
       <Header>
         <Subheader>What do you want to learn today?</Subheader>
         <SearchForm>

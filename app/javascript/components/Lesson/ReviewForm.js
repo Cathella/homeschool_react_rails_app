@@ -45,27 +45,16 @@ const RatingBox = styled.div`
   }
 `
 const RatingTitle = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   padding-bottom: 20px;
-  // text-align: center;
 `
-const Field = styled.div` 
-  // border-radius: 4px;
+const Field = styled.div`
   width: 100%;
-
-  input {
-    min-height: 50px;
-    border-radius: 4px;
-    border: 1px solid #e6e6e6;
-    margin: 12px auto;
-    padding: 0px 12px;
-    width: 93%;
-  }
 
   textarea {
     width: 93%;
-    min-height: 80px;
+    min-height: 60px;
     border-radius: 4px;
     border: 1px solid #e6e6e6;
     margin: 12px auto;
@@ -118,15 +107,15 @@ const ReviewForm = (props) => {
           How did you find this lesson? Share your review!
         </Headline>
         <Field>
-          <textarea onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Leave a comment" />
-        </Field>
-        <Field>
           <RatingContainer>
             <RatingTitle>Rate this Lesson</RatingTitle>
             <RatingBox>
               {ratingOptions}
             </RatingBox>
           </RatingContainer>
+        </Field>
+        <Field>
+          <textarea onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Leave a comment" />
         </Field>
         <SubmitBtn type="submit">Submit Your Review</SubmitBtn>
       </form>

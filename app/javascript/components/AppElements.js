@@ -293,8 +293,8 @@ export const NavBtnLink = styled(Link)`
   color: black;
   border: 2px solid #C4C4C4;
   box-sizing: border-box;
-  border-radius: 10px;
-  padding: 14px 30px;
+  border-radius: 8px;
+  padding: 0.6em 1.5em;
   background: transparent;
 
   outline: none;
@@ -308,6 +308,9 @@ export const NavBtnLink = styled(Link)`
     color: #FFFFFF;
     border: none;
   }
+`
+export const NavSection = styled.div`
+  border-bottom: 1px solid #ddd;
 `
 export const AppLogo = styled.div`
   display: flex;

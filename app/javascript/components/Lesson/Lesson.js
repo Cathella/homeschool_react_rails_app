@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Header from './Header'
 import Menu from '../Home/Menu'
 import ReviewForm from './ReviewForm'
-import { Container } from '../AppElements'
+import { Container, NavSection } from '../AppElements'
 import FooterSection from '../Home/Footer'
 
 const Grid = styled.div`
@@ -12,7 +12,7 @@ const Grid = styled.div`
   grid-template-columns: 650px 1fr;
   grid-gap: 35px;
   width: 100%;
-  margin-bottom: 50px;
+  margin: 50px 0;
 `
 const Column = styled.div`
   &:last-child {
@@ -71,8 +71,13 @@ const Lesson = (props) => {
 
   return(
     <div>
+      <NavSection>
+        <Container>
+          <Menu />
+        </Container>
+      </NavSection>
+
       <Container>
-        <Menu />
         <Grid>
           {
             loaded &&
