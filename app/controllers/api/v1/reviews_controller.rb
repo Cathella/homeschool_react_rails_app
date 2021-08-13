@@ -30,7 +30,7 @@ module Api
       end
 
       def review_params
-        params.require(:review).permit(:title, :description, :score, :lesson_id)
+        params.require(:review).permit(:description, :score, :lesson_id)
       end
     end
   end

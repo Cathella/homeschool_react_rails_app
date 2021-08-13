@@ -59,7 +59,7 @@ const Lesson = (props) => {
     .then( resp => {
       const included = [...lesson.included, resp.data]
       setLesson({...lesson, included})
-      setReview({title: '', description: '', score: 0})
+      setReview({description: '', score: 0})
     })
     .catch( resp => {} )
   }

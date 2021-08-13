@@ -1,5 +1,5 @@
 class Teacher < ApplicationRecord
-  has_many :lessons
+  # has_many :lessons
 
   before_create :slugify
 

@@ -64,13 +64,12 @@ const Field = styled.div`
   }
 
   textarea {
-    width: 100%;
+    width: 93%;
     min-height: 80px;
     border-radius: 4px;
     border: 1px solid #e6e6e6;
-    margin: 12px 0;
+    margin: 12px auto;
     padding: 12px;
-    width: 100%;
   }
 `
 const Wrapper = styled.div`
@@ -119,10 +118,7 @@ const ReviewForm = (props) => {
           How did you find this lesson? Share your review!
         </Headline>
         <Field>
-          <input onChange={props.handleChange} value={props.review.title} type="text" name="title" placeholder="Title" />
-        </Field>
-        <Field>
-          <input onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Leave a comment" />
+          <textarea onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Leave a comment" />
         </Field>
         <Field>
           <RatingContainer>

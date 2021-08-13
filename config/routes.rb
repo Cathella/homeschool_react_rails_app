@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :teachers, param: :slug
       resources :lessons, param: :slug
       resources :reviews, only: [:create, :destroy]
-      resources :comments, only: [:create, :destroy]
+      # resources :comments, only: [:create, :destroy]
     end
   end
   

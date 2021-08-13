@@ -1,6 +1,6 @@
 class Lesson < ApplicationRecord
-  belongs_to :teacher
-  has_many :comments
+  # belongs_to :teacher
+  # has_many :comments
   has_many :reviews
 
   before_create :slugify
