@@ -1,47 +1,55 @@
 import React from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
+import { LessonVideo, Tag, LessonTitle, About } from '../AppElements'
 import styled from 'styled-components'
 
-const LessonVideo = styled.div`
-  iframe {
-    width: 300px;
-    height: 170px;
-    border: 1px solid #fefefe;
-    border-radius: 10px;
-  }
-`
-const LessonTitle = styled.div`
-  padding: 20px 0 10px 0;
-`
 const LinkWrapper = styled.div`
-  margin: 20px 0 20px 0;
-  height: 50px;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px 20px;
+  font-size: 14px;
+  border-top: 1px solid #000;
+  
   a {
-    color: #fff;
-    background: #000;
-    border-radius: 4px;
-    padding: 10px 50px;
-    border: 1px solid #000;
-    width: 100%;
     text-decoration: none;
+    background: linear-gradient(180deg, #FDDA5F 0%, #DBBD55 100%);
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
   }
+`
+const Card = styled.div`
+  background: #eee6fd;
+  border-radius: 10px;
+`
+const ContentPad = styled.div`
+  padding: 0 12px;
 `
 
 const Lesson = (props) => {
   return(
-    <div className="card">
+    <Card>
       <LessonVideo>
         <iframe
           src={`https://www.youtube.com/embed/${props.attributes.video_url}`}>
         </iframe>
       </LessonVideo>
-      <LessonTitle>{props.attributes.title}</LessonTitle>
-      <div className="lesson-score">{props.attributes.average_score}</div>
+      <ContentPad>  
+        <LessonTitle>{props.attributes.title}</LessonTitle>
+        <About>
+          <Tag>{props.attributes.subject}</Tag>
+          <Tag>{props.attributes.grade}</Tag>
+          <Tag>{props.attributes.topic}</Tag>
+        </About>
+      </ContentPad> 
       <LinkWrapper>
-        <Link to={`/lessons/${props.attributes.slug}`}>View lesson</Link>
+        <div className="lesson-score">Review score: {props.attributes.average_score}</div>
+        <Link to={`/lessons/${props.attributes.slug}`}>
+          View lesson
+        </Link>
       </LinkWrapper>
-    </div>
+    </Card>
   )
 }
 

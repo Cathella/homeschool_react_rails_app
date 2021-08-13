@@ -46,11 +46,11 @@ module Api
       private
 
       def lesson_params
-        params.require(:lesson).permit(:title, :video_url, :description, :topic, :subject, :grade, :teacher_id)
+        params.require(:lesson).permit(:title, :video_url, :description, :topic, :subject, :grade)
       end
 
       def options
-        @options ||= { include: %i[reviews comments] }
+        @options ||= { include: %i[reviews] }
       end
     end
   end

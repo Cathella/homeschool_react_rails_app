@@ -18,10 +18,8 @@ ActiveRecord::Schema.define(version: 2021_07_29_222505) do
   create_table "comments", force: :cascade do |t|
     t.text "body"
     t.string "author"
-    t.bigint "lesson_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["lesson_id"], name: "index_comments_on_lesson_id"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -32,14 +30,11 @@ ActiveRecord::Schema.define(version: 2021_07_29_222505) do
     t.string "subject"
     t.string "grade"
     t.string "slug"
-    t.bigint "teacher_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["teacher_id"], name: "index_lessons_on_teacher_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "title"
     t.text "description"
     t.integer "score"
     t.bigint "lesson_id", null: false
@@ -55,7 +50,5 @@ ActiveRecord::Schema.define(version: 2021_07_29_222505) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "comments", "lessons"
-  add_foreign_key "lessons", "teachers"
   add_foreign_key "reviews", "lessons"
 end
