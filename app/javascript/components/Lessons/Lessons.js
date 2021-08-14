@@ -9,11 +9,9 @@ import FooterSection from '../Home/Footer'
 
 const Header = styled.div`
   padding: 70px 0 50px 0px;
-  background: #917aeb;
-  color: white;
-  border-radius: 10px;
+  background: #c1f1fd;
+  color: black;
   text-align: center;
-  margin-top: 50px;
 `
 const Grid = styled.div`
   display: grid;
@@ -48,8 +46,7 @@ const Lessons = () => {
         <Menu />
       </Container>
     </NavSection>
-    <Container>
-      <Header>
+    <Header>
         <Subheader>What do you want to learn today?</Subheader>
         <SearchForm>
           <form>
@@ -73,6 +70,8 @@ const Lessons = () => {
           <Link to={``}><Tag>Primary Seven</Tag></Link>
         </SearchTags>
       </Header>
+    <Container>
+      
       <Features>
         <h2>Recently Uploaded</h2>
       </Features>
