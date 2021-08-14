@@ -4,15 +4,16 @@ import styled from 'styled-components'
 import Header from './Header'
 import Menu from '../Home/Menu'
 import ReviewForm from './ReviewForm'
+import Review from './Review'
 import { Container, NavSection } from '../AppElements'
 import FooterSection from '../Home/Footer'
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 650px 1fr;
-  grid-gap: 35px;
+  grid-gap: 45px;
   width: 100%;
-  margin: 50px 0;
+  margin: 20px 0 50px;
 `
 const Column = styled.div`
   &:last-child {
@@ -54,19 +55,33 @@ const Lesson = (props) => {
     const csrfToken = document.querySelector('[name=csrf-token]').content
     axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
 
-    const lesson_id = lesson.data.id
+    // get lesson id
+    const lesson_id = parseInt(lesson.data.id)
     axios.post('/api/v1/reviews', {review, lesson_id})
     .then( resp => {
-      const included = [...lesson.included, resp.data]
+      const included = [...lesson.included, resp.data.data]
       setLesson({...lesson, included})
       setReview({description: '', score: 0})
     })
     .catch( resp => {} )
   }
 
+  // set score
   const setRating = (score, e) => {
     e.preventDefault()
     setReview({...review, score})
+  }
+
+  let reviews
+  if (loaded && lesson.included) {
+    reviews = lesson.included.map( (item, index) => {
+      return(
+        <Review 
+          key={index}
+          attributes={item.attributes}
+        />
+      )
+    })
   }
 
   return(
@@ -88,7 +103,7 @@ const Lesson = (props) => {
                   reviews={lesson.included}
                 />
               
-                {/* <div className="reviews"></div> */}
+                {reviews}
               </Column>
               <Column>
                 <ReviewForm

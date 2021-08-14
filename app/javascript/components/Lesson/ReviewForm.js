@@ -63,25 +63,25 @@ const Field = styled.div`
 `
 const Wrapper = styled.div`
   padding: 20px;
-  height: 100vh;
   text-align: center;
 `
 const SubmitBtn = styled.button`
   color: #ffffff;
-  background: #333333;
-  border-radius: 4px;
-  padding: 12px;
-  font-size: 18px;
+  background: linear-gradient(94.53deg, #917AEB 8.02%, #00C0ED 142.37%);
+  border-radius: 10px;
+  padding: 16px 0;
   cursor: pointer;
   transition: ease-in-out 0.1s;
-  border: 1px solid #333333;
+  border: none;
   width: 100%;
-  // margin-top: 30px;
+  margin-top: 15px;
+  font-weight: bold;
+
+  // box-sizing: border-box;
 
   &:hover {
-    background: #ffffff;
-    color: #333333;
-    border: 1px solid #ffffff;
+    background: #00C0ED;
+    color: #ffffff;
   }
 `
 const Headline = styled.div`
@@ -95,7 +95,7 @@ const ReviewForm = (props) => {
     return(
       <Fragment>
         <input type="radio" value={score} checked={props.review.score == score} name="rating" onChange={() => console.log('selected:', score)} id={`rating-${score}`} />
-        <label onCLick={props.setRating.bind(this, score)}></label>
+        <label onClick={props.setRating.bind(this, score)}></label>
       </Fragment>
     )
   })
@@ -104,7 +104,7 @@ const ReviewForm = (props) => {
     <Wrapper>
       <form onSubmit={props.handleSubmit}>
         <Headline>
-          How did you find this lesson? Share your review!
+          Share with us, how much you enjoyed the lesson!
         </Headline>
         <Field>
           <RatingContainer>
@@ -115,9 +115,9 @@ const ReviewForm = (props) => {
           </RatingContainer>
         </Field>
         <Field>
-          <textarea onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Leave a comment" />
+          <textarea onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Leave a comment (Optional)" />
         </Field>
-        <SubmitBtn type="submit">Submit Your Review</SubmitBtn>
+        <SubmitBtn type="submit">Submit</SubmitBtn>
       </form>
     </Wrapper>
   )

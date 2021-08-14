@@ -405,7 +405,7 @@ export const Subheader = styled.div`
 export const Tag = styled.div`
   text-decoration: none;
   font-size: 13px;
-  background: #00c0ed;
+  background: #917aeb;
   color: white;
   padding: 2px 10px;
   border-radius: 4px;

@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import { LessonVideo, Tag, LessonTitle, About } from '../AppElements'
 import styled from 'styled-components'
+import Rating from '../Rating/Rating'
 
 const LinkWrapper = styled.div`
   display: flex;
@@ -44,7 +45,7 @@ const Lesson = (props) => {
         </About>
       </ContentPad> 
       <LinkWrapper>
-        <div className="lesson-score">Review score: {props.attributes.average_score}</div>
+        <Rating score={props.attributes.average_score} />
         <Link to={`/lessons/${props.attributes.slug}`}>
           View lesson
         </Link>
