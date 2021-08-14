@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import { Video, LessonTitle, Tag, About } from '../AppElements'
+import Rating from '../Rating/Rating'
 
 const Describe = styled.div`
   background: #eeeeee;
@@ -16,6 +17,9 @@ const Reviews = styled.div`
   padding: 20px 0 0 0;
   border-top: 1px solid #ddd;
   font-weight: bold;
+  color: #8795a1;
+  font-size: 16px;
+  text-align: right;
 `
 
 const Header = (props) => {
@@ -39,9 +43,8 @@ const Header = (props) => {
         {description}
       </Describe>
       <Reviews>
-        <div className="star_rating"></div>
-        {/* <div className="total_out_of">Review score: <span>{average_score} out of 5.</span> <i>({total} Reviews)</i></div> */}
-        <div className="total_out_of">{total} Reviews</div>
+        <div className="star_rating"><Rating score={props.attributes.average_score} /></div>
+        <div className="total_out_of">{average_score}/5 (Based on {total} Reviews)</div>
       </Reviews>
     </div>
   )

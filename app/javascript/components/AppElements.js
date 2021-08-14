@@ -382,11 +382,28 @@ export const LessonCount = styled.div`
   font-weight: bold;
 `
 export const LessonVideo = styled.div`
+  position: relative;
+
   iframe {
     width: 100%;
     height: 190px;
     border: 1px solid #fefefe;
     border-radius: 10px 10px 0 0;
+    position: relative;
+    top: 0;
+  }
+
+  a {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 10px;
+  }
+
+  div {
+    height: 180px;
+    background: red;
+    opacity: 0;
   }
 `
 export const Video = styled.div`

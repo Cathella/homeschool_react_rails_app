@@ -17,10 +17,11 @@ const Grid = styled.div`
 `
 const Column = styled.div`
   &:last-child {
-    background: #eee6fd;
-    height: 100vh;
-    overflow-y: scroll;
-    margin-top: 15px;
+    // background: #eee6fd;
+    // height: 100vh;
+    // overflow-y: scroll;
+    // margin-top: 15px;
+    // padding: 0px 20px 20px 20px;
   }
 `
 
@@ -103,7 +104,7 @@ const Lesson = (props) => {
                   reviews={lesson.included}
                 />
               
-                {reviews}
+                {/* {reviews} */}
               </Column>
               <Column>
                 <ReviewForm
