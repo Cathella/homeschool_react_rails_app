@@ -5,7 +5,7 @@ import { Video, LessonTitle, Tag, About } from '../AppElements'
 import Rating from '../Rating/Rating'
 
 const Describe = styled.div`
-  background: #eeeeee;
+  background: #c1f1fd;
   padding: 0.8rem 1rem;
   border-radius: 5px;
   font-size: 14px;

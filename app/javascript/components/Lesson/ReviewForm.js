@@ -70,7 +70,6 @@ const Wrapper = styled.div`
 const SubmitBtn = styled.button`
   background: linear-gradient(180deg, #FDDA5F 0%, #DBBD55 100%);
   border: 1px solid white;
-  // box-shadow: -4px 4px 0px rgba(0,0,0,0.1);
   border-radius: 10px;
   padding: 16px 0;
   cursor: pointer;
@@ -81,11 +80,10 @@ const SubmitBtn = styled.button`
 
   &:hover {
     background: #00C0ED;
-    color: #ffffff;
   }
 `
 const Headline = styled.div`
-  padding: 0px 20px 20px 20px;
+  padding: 10px 20px 20px 20px;
   font-size: 18px;
   font-weight: bold;
 `
