@@ -2,6 +2,7 @@ module Api
   module V1
     class LessonsController < ApplicationController
       protect_from_forgery with: :null_session
+      # before_action :authorized, only: [:create, :update, :destroy]
 
       def index
         lessons = Lesson.all
