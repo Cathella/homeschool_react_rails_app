@@ -2,7 +2,7 @@ module Api
   module V1
     class LessonsController < ApplicationController
       protect_from_forgery with: :null_session
-      # before_action :authorized, only: [:create, :update, :destroy]
+      before_action :authorized, only: [:create, :update, :destroy]
 
       def index
         lessons = Lesson.all
@@ -16,6 +16,7 @@ module Api
 
       def create
         lesson = Lesson.new(lesson_params)
+        lesson.user = @user
 
         if lesson.save
           render json: LessonSerializer.new(lesson).serialized_json

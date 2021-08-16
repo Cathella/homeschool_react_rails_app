@@ -11,7 +11,8 @@ module Api
 
         if @user.valid?
           token = encode_token({user_id: @user.id})
-          render json: { user: @user, token: token }
+          render json: { user: @user, token: token } 
+          # render json: { UserSerializer.new(user).serialized_json, token: token }
         else
           render json: { error: "Invalid username or password" }
         end
