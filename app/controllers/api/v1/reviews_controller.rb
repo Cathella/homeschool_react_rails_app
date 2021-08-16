@@ -2,7 +2,7 @@ module Api
   module V1
     class ReviewsController < ApplicationController
       protect_from_forgery with: :null_session
-      before_action :authorized
+      before_action :authorized, only: [:create, :destroy]
 
       def create
         review = lesson.reviews.new(review_params)

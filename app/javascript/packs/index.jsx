@@ -6,7 +6,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '../components/App'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { AppState } from "./AppState"
+import { AppState } from "./AppState.jsx"
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(

@@ -1,5 +1,10 @@
-import { props } from 'bluebird'
+import { useContext, useReducer } from 'react'
 import React from 'react'
+
+// initialState
+const initialState = {
+  url: ""
+}
 
 // Reducer 
 // action = {type: "", payload: ---}
