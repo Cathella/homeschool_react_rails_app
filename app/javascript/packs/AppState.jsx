@@ -5,7 +5,24 @@ import React from 'react'
 const initialState = {
   url: "http://localhost:3000/api/v1",
   token: null,
-  username: null
+  username: null,
+  lessons: null,
+  new: {
+    title: "",
+    description: "",
+    grade: "",
+    topic: "",
+    video_url: "",
+    subject: ""
+  },
+  edit: {
+    title: "",
+    description: "",
+    grade: "",
+    topic: "",
+    video_url: "",
+    subject: ""
+  }
 }
 
 // Reducer 
@@ -21,6 +38,10 @@ const reducer = (state, action) => {
       newState = { ...state, token: null, username: null }
       window.localStorage.removeItem("auth")
       return newState;
+      break;
+    case "appLessons":
+      newState = { ...state, lessons: action.payload }
+      return newState
       break;
     default: state;
       break;
