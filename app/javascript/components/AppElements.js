@@ -500,7 +500,22 @@ export const Form = styled.form`
   flex-direction: column;
   width: 35%;
   border-radius: 30px;
-  background: white;
+  background: #ffeeef;
+  box-shadow: 6px 6px 0 #d4ebea;
+
+  input {
+    height: 45px;
+    border-radius: 10px;
+    border: 1.4px dashed gray;
+    margin-bottom: 1.2em;
+    padding: 0 1em;
+  }
+
+  input[type=submit] {
+    border: 2px solid grey;
+    font-weight: bold;
+    background: #fee400;
+  }
 `
 
 const AppElements = () => {
