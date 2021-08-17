@@ -492,6 +492,16 @@ export const About = styled.div`
     color: black;
   }
 `
+export const Form = styled.form`
+  margin: 2em auto;
+  border: 1.4px dashed gray;
+  padding: 3em 4em;
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  border-radius: 30px;
+  background: white;
+`
 
 const AppElements = () => {
   return(
