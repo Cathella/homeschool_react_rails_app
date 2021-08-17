@@ -3,15 +3,54 @@ import React from 'react'
 
 // initialState
 const initialState = {
-  url: ""
+  url: "http://localhost:3000/api/v1",
+  token: null,
+  username: null
 }
 
 // Reducer 
 // action = {type: "", payload: ---}
 const reducer = (state, action) => {
-  switch(action.type){
+  switch (action.type) {
+    case "signup":
+      fetch(state.url + "/users/", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(action.payload)
+      })
+      .then(response => response.json())
+      .then(user => {
+        return {
+          ...state,
+          token: user.token,
+          username: user.username
+        }
+      })
+    break
+
+    case "login":
+      fetch(state.url + "/login/", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(action.payload)
+      })
+      .then(response => response.json())
+      .then(user => {
+        return {
+          ...state,
+          token: user.token,
+          username: user.username
+        }
+      })
+    break
+
     default:
       return state
+      break
   }
 }
 

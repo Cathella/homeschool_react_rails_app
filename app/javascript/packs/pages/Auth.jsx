@@ -12,11 +12,11 @@ const Auth = (props) => {
 
   const actions = {
     signup: {
-      action: "signup",
+      type: "signup",
       payload: formData
     },
     login: {
-      action: "login",
+      type: "login",
       payload: formData
     }
   }
@@ -32,7 +32,7 @@ const Auth = (props) => {
 
   return(
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" name="username" value={formData.username} onChange={handleChange} />
         <input type="password" name="password" value={formData.password} onChange={handleChange} />
         <input type="submit"  value={type} />
