@@ -2,24 +2,44 @@ import React from 'react'
 import { useAppState } from "../AppState.jsx"
 
 const Auth = (props) => {
-  const type = props.match.params.form
+  const type = props.match.params.form;
   const [formData, setFormData] = React.useState({
     username: "",
-    password: ""
-  })
+    password: "",
+  });
 
-  const {dispatch} = useAppState()
+  const [userData, setUserData] = React.useState(null);
+  const { state, dispatch } = useAppState();
+  console.log(state)
+
+  React.useEffect(() => {
+    if (userData) {
+      console.log(userData)
+      const { token, user } = userData;
+      dispatch({ type: "auth", payload: { token, username: user.username }});
+    }
+  }, [userData]);
 
   const actions = {
-    signup: {
-      type: "signup",
-      payload: formData
+    signup: () => {
+      return fetch(state.url + "/users", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }).then((response) => response.json());
     },
-    login: {
-      type: "login",
-      payload: formData
-    }
-  }
+    login: () => {
+      return fetch(state.url + "/login", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }).then((response) => response.json());
+    },
+  };
 
   const handleChange = (event) => {
     setFormData({...formData, [event.target.name] : event.target.value})
@@ -27,15 +47,30 @@ const Auth = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(actions[type])
+    actions[type]().then((data) => {
+      setUserData(data)
+    })
   }
 
   return(
     <div>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="username" value={formData.username} onChange={handleChange} />
-        <input type="password" name="password" value={formData.password} onChange={handleChange} />
-        <input type="submit"  value={type} />
+        <input 
+          type="text" 
+          name="username" 
+          value={formData.username} 
+          onChange={handleChange} 
+        />
+        <input 
+          type="password" 
+          name="password" 
+          value={formData.password} 
+          onChange={handleChange} 
+        />
+        <input 
+          type="submit"  
+          value={type} 
+        />
       </form>
     </div>
   )
