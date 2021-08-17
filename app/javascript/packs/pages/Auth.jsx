@@ -18,6 +18,11 @@ const Auth = (props) => {
       console.log(userData)
       const { token, user } = userData;
       dispatch({ type: "auth", payload: { token, username: user.username }});
+      window.localStorage.setItem(
+        "auth",
+        JSON.stringify({ token, username: user.username })
+      );
+      props.history.push("/dashboard");
     }
   }, [userData]);
 
@@ -56,6 +61,7 @@ const Auth = (props) => {
   return(
     <div>
       <Form onSubmit={handleSubmit}>
+        <label>{type}</label>
         <input 
           type="text" 
           name="username"
@@ -74,6 +80,7 @@ const Auth = (props) => {
           type="submit"  
           value={type} 
         />
+        <div></div>
       </Form>
     </div>
   )

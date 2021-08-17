@@ -2,8 +2,11 @@ import React, { Fragment } from 'react'
 import Bar from 'images/menu-1.svg'
 import Logo from 'images/logo.svg'
 import { Nav, NavMenu, NavBtn, NavBtnLink, Bars, NavLink, AppLogo } from './AppElements'
+import { useAppState } from '../packs/AppState.jsx'
 
 const Menu = (props) => {
+  const {state, dispatch} = useAppState()
+
   return(
     <Nav>
       <NavLink to="/">
@@ -15,10 +18,14 @@ const Menu = (props) => {
       <Bars><img src={Bar} /></Bars>
       <NavMenu>
         <NavLink to="/dashboard">Children</NavLink>
-        <NavLink to="/auth/login">Login</NavLink>
+        {!state.token ? (<><NavLink to="/auth/login">Login</NavLink>
         <NavBtn>
           <NavBtnLink to="/auth/signup">Signup</NavBtnLink>
-        </NavBtn>
+        </NavBtn></>) : null}
+        {state.token ? <NavBtn><NavBtnLink to="" onClick={() => {
+          dispatch({type: "logout"})
+          props.history.push("/")
+        }}>Logout</NavBtnLink></NavBtn> : null}
       </NavMenu>
     </Nav>
   )

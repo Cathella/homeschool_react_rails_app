@@ -5,12 +5,25 @@ import Home from '../packs/pages/Home.jsx'
 import Auth from '../packs/pages/Auth.jsx'
 import Dashboard from '../packs/pages/Dashboard.jsx'
 import { Container } from './AppElements'
+import { useAppState } from '../packs/AppState.jsx'
 
-const App = () => {
+const App = (props) => {
+  const { state, dispatch } = useAppState()
+  React.useState(() => {
+    const auth = JSON.parse(window.localStorage.getItem("auth"))
+    
+    if (auth) {
+      dispatch({type: "auth", payload: auth})
+      props.history.push("/dashboard")
+    } else {
+      props.history.push("/")
+    }
+  }, [])
+
   return (
     <>
       <Container>
-      <Menu />
+      <Route path="/" component={Menu} />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/auth/:form" component={Auth} />

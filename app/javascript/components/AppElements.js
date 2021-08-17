@@ -493,28 +493,58 @@ export const About = styled.div`
   }
 `
 export const Form = styled.form`
+  position: relative;
   margin: 2em auto;
-  border: 1.4px dashed gray;
-  padding: 3em 4em;
+  border: 1.4px solid gray;
+  padding: 3em 0;
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 30%;
   border-radius: 30px;
   background: #ffeeef;
-  box-shadow: 6px 6px 0 #d4ebea;
 
   input {
     height: 45px;
     border-radius: 10px;
-    border: 1.4px dashed gray;
-    margin-bottom: 1.2em;
+    border: 1.4px solid gray;
+    margin: 0 3em 1.2em;
     padding: 0 1em;
+
+    :focus {
+      outline: none;
+      background: #f2f5c6;
+    }
   }
 
   input[type=submit] {
-    border: 2px solid grey;
+    border: 0;
     font-weight: bold;
-    background: #fee400;
+    margin-bottom: 0;
+    background: #FA64A9;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    height: 50px;
+    border-radius: 25px;
+  }
+
+  div {
+    background: white;
+    height: 322px;
+    width: 100%;
+    border: 1.4px dashed gray;
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    border-radius: 40px;
+    z-index: -10;
+  }
+
+  label {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    text-transform: capitalize;
   }
 `
 
