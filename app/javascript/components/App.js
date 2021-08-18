@@ -32,7 +32,6 @@ const App = (props) => {
         <Route exact path="/" component={Home} />
         <Route path="/auth/:form" component={Auth} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/lessons" component={Lessons} />
         <Route path="/lessons/:slug" component={Lesson} />
       </Switch>
       <FooterSection />

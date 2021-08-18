@@ -409,12 +409,13 @@ export const LessonVideo = styled.div`
   }
 `
 export const Video = styled.div`
+  margin: 15px auto 10px;
+
   iframe {
     width: 100%;
     height: 380px;
-    margin: 15px auto 10px;
     border: 1px solid #fefefe;
-    border-radius: 10px;
+    border-radius: 15px;
   }
 `
 export const Subheader = styled.div`
@@ -493,6 +494,7 @@ export const About = styled.div`
     background: white;
     color: black;
     border: 1px solid black;
+    cursor: help;
   }
 `
 export const Form = styled.form`

@@ -1,24 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
-import { Video, LessonTitle, Tag, About } from '../AppElements'
+import { Video, LessonTitle, Tag, About, BackImg } from '../AppElements'
 import Rating from '../Rating/Rating'
 
 const Describe = styled.div`
-  background: #c1f1fd;
-  padding: 0.8rem 1rem;
-  border-radius: 5px;
   font-size: 14px;
-  margin-bottom: 2rem;
+  margin: 1rem 0 2rem;
 `
 const Reviews = styled.div`
   font-size: 14px;
   margin: 20px 0;
   padding: 20px 0 0 0;
-  border-top: 1px solid #ddd;
-  font-weight: bold;
-  color: #8795a1;
-  font-size: 16px;
+  border-top: 1px solid black;
+  font-size: 15px;
   text-align: right;
 `
 

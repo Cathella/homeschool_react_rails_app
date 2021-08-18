@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Header from './Header'
 import ReviewForm from './ReviewForm'
 import Review from './Review'
-import { Container, NavSection } from '../AppElements'
+import { BackImg, Container, NavSection } from '../AppElements'
 
 const Grid = styled.div`
   display: grid;
@@ -14,13 +14,7 @@ const Grid = styled.div`
   margin: 20px 0 50px;
 `
 const Column = styled.div`
-  &:last-child {
-    // background: #eee6fd;
-    // height: 100vh;
-    // overflow-y: scroll;
-    // margin-top: 15px;
-    // padding: 0px 20px 20px 20px;
-  }
+  
 `
 
 const Lesson = (props) => {
@@ -85,12 +79,6 @@ const Lesson = (props) => {
 
   return(
     <div>
-      {/* <NavSection>
-        <Container>
-          <Menu />
-        </Container>
-      </NavSection> */}
-
       <Container>
         <Grid>
           {
@@ -117,6 +105,7 @@ const Lesson = (props) => {
           }
         </Grid>
       </Container>
+      <BackImg></BackImg>
     </div>
   )
 }

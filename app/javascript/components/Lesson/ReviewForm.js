@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import Gray from './Stars/Gray'
 import Hover from './Stars/Hover'
 import Selected from './Stars/Selected'
+import { Form } from '../AppElements'
 
 const RatingContainer = styled.div`
   text-align: center;
   border-radius: 10px;
   font-size: 16px;
   padding: 32px 0 12px 0;
-  border: 1.4px dashed rgba(0,0,0,0.2);
-  // box-shadow: -5px 5px 0px rgba(0,0,0,0.1);
+  border: 1.4px solid gray;
   background: #ffffff;
   margin: 12px 0;
 `
@@ -50,7 +50,7 @@ const RatingTitle = styled.div`
   padding-bottom: 12px;
 `
 const Field = styled.div`
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
 
   textarea {
@@ -58,32 +58,38 @@ const Field = styled.div`
     width: 91%;
     min-height: 55px;
     border-radius: 10px;
-    border: 1.4px dashed rgba(0,0,0,0.2);
+    border: 1.4px solid gray;
     margin: 10px auto 0;
     padding: 12px;
+
+    :focus {
+      outline: none;
+    }
   }
 `
 const Wrapper = styled.div`
-  padding: 20px;
   text-align: center;
+  margin: 20px 0 0 0;
+  border: 1.4px dashed gray;
+  border-radius: 20px;
+  background: #ffeeef;
+  padding-bottom: 60px;
 `
 const SubmitBtn = styled.button`
-  background: linear-gradient(180deg, #FDDA5F 0%, #DBBD55 100%);
-  border: 1px solid white;
-  border-radius: 10px;
-  padding: 16px 0;
+  background: #FA64A9;
+  border: 0;
+  height: 50px;
+  border-radius: 25px;
+  line-height: 50px;
+  color: white;
   cursor: pointer;
   transition: ease-in-out 0.1s;
-  width: 80%;
+  width: 70%;
   margin-top: 0px;
   font-weight: bold;
-
-  &:hover {
-    background: #00C0ED;
-  }
 `
 const Headline = styled.div`
-  padding: 10px 20px 20px 20px;
+  padding: 50px 50px 20px;
   font-size: 18px;
   font-weight: bold;
 `
