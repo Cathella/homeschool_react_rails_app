@@ -496,15 +496,14 @@ export const About = styled.div`
 `
 export const Form = styled.form`
   position: relative;
-  margin: 2em auto 0;
+  margin: 2em auto 6em;
   border: 1.4px solid gray;
   padding: 3em 0 4em;
   display: flex;
   flex-direction: column;
   width: 30%;
   border-radius: 30px;
-  background: #ffeeef;z
-  z-index: 10;
+  background: #ffeeef;
 
   input {
     height: 45px;
@@ -537,18 +536,40 @@ export const Form = styled.form`
     font-weight: bold;
     text-transform: capitalize;
   }
+
+  div {
+    background: white;
+    height: 338px;
+    width: 100%;
+    border: 1.4px dashed gray;
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    border-radius: 40px;
+    z-index: -10;
+  }
 `
-export const Backdiv = styled.div`
-background: white;
-height: 338px;
-width: 30%;
-border: 1.4px dashed gray;
-position: absolute;
-margin: 2em auto 0;
-top: 10px;
-left: 8px;
-border-radius: 40px;
-z-index: -10;
+export const BackImg = styled.div`
+  background-image: url(${Background});
+  background-repeat: no-repeat;
+  height: 300px;
+  background-position: center 0%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -20;
+  transform: rotate(180deg);
+`
+export const BackBlueImg = styled.div`
+  background-image: url(${BackgroundBlue});
+  background-repeat: no-repeat;
+  height: 250px;
+  background-position: center 0%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -20;
+  transform: rotate(180deg);
 `
 
 const AppElements = () => {

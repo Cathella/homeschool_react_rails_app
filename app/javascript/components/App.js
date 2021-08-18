@@ -35,7 +35,6 @@ const App = (props) => {
         <Route path="/lessons" component={Lessons} />
         <Route path="/lessons/:slug" component={Lesson} />
       </Switch>
-      
       <FooterSection />
     </>
   );

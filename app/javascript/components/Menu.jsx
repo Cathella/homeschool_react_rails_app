@@ -17,15 +17,14 @@ const Menu = (props) => {
       </NavLink>
       <Bars><img src={Bar} /></Bars>
       <NavMenu>
-        <NavLink to="/lessons">Children</NavLink>
         {!state.token ? (<><NavLink to="/auth/login">Login</NavLink>
         <NavBtn>
           <NavBtnLink to="/auth/signup">Signup</NavBtnLink>
         </NavBtn></>) : null}
-        {state.token ? <NavBtn><NavBtnLink to="" onClick={() => {
+        {state.token ? <><NavLink to="/dashboard">Dashboard</NavLink><NavBtn><NavBtnLink to="" onClick={() => {
           dispatch({type: "logout"})
           props.history.push("/")
-        }}>Logout</NavBtnLink></NavBtn> : null}
+        }}>Logout</NavBtnLink></NavBtn></> : null}
       </NavMenu>
     </Nav>
   )
