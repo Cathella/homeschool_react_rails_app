@@ -387,7 +387,7 @@ export const LessonVideo = styled.div`
   position: relative;
 
   iframe {
-    width: 100%;
+    width: 99.5%;
     height: 190px;
     border: 1px solid #fefefe;
     border-radius: 10px 10px 0 0;
@@ -424,7 +424,7 @@ export const Subheader = styled.div`
 export const Tag = styled.div`
   text-decoration: none;
   font-size: 12px;
-  background: #917aeb;
+  background: #49afab;
   color: white;
   padding: 2px 10px;
   border-radius: 4px;
@@ -490,8 +490,9 @@ export const About = styled.div`
   padding: 0 0 10px;
 
   div {
-    background: #ffa4ce;
+    background: white;
     color: black;
+    border: 1px solid black;
   }
 `
 export const Form = styled.form`

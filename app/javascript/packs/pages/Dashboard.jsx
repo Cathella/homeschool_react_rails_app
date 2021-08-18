@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, BackBlueImg, GetstartedBtn } from '../../components/AppElements'
 import styled from 'styled-components'
+import Lessons from '../../components/Lessons/Lessons'
 import { BrowserRouter, Link } from 'react-router-dom'
 
 const Header = styled.div`
@@ -18,7 +19,6 @@ const Header = styled.div`
   }
 `
 const Grade = styled.div`
-  // background: linear-gradient(180deg, #FDDA5F 0%, #DBBD55 100%);
   background: linear-gradient(180deg, #FED0D4 0%, #ECC3C6 100%);
   padding: 1em 2em;
   font-weight: bold;
@@ -91,6 +91,7 @@ const Dashboard = (props) => {
           <div>Topic Quizzes</div>
           </Link>
         </Subjects>
+        <Lessons />
       </Container>
       <BackBlueImg></BackBlueImg>
     </div>

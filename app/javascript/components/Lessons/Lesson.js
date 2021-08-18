@@ -6,10 +6,10 @@ import Rating from '../Rating/Rating'
 
 const LinkWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10px 12px 20px;
-  font-size: 14px;
+  font-size: 17px;
   border-top: 1px solid #000;
   
   a {
@@ -27,8 +27,8 @@ const LinkWrapper = styled.div`
   }
 `
 const Card = styled.div`
-  background: white;
-  box-shadow: 4px -4px 10px rgba(0,0,0,0.1);
+  background: #ffeeef;
+  border: 1.4px dashed gray;
   border-radius: 10px;
   position: relative;
 `
@@ -58,9 +58,9 @@ const Lesson = (props) => {
 
       <LinkWrapper>
         <Rating score={props.attributes.average_score} />
-        <Link to={`/lessons/${props.attributes.slug}`}>
+        {/* <Link to={`/lessons/${props.attributes.slug}`}>
           View lesson
-        </Link>
+        </Link> */}
       </LinkWrapper>
     </Card>
   )
