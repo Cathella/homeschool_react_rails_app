@@ -3,6 +3,7 @@ import { Container, BackBlueImg, GetstartedBtn } from '../../components/AppEleme
 import styled from 'styled-components'
 import Lessons from '../../components/Lessons/Lessons'
 import { BrowserRouter, Link } from 'react-router-dom'
+import { useAppState } from '../AppState.jsx'
 
 const Header = styled.div`
   padding: 50px;
@@ -52,12 +53,13 @@ const Subjects = styled.div`
 `
 
 const Dashboard = (props) => {
+  const { state, dispatch } = useAppState()
 
   return(
     <div>
       <Container>
         <Header>
-          <h2>Welcome, dear student!</h2>
+          <h2>Welcome, dear student {state.username}!</h2>
           <div>
             <Grade>Grade: Primary One</Grade>
           </div>

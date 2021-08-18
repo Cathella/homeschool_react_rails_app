@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import Header from './Header'
 import ReviewForm from './ReviewForm'
 import Review from './Review'
-import { BackImg, Container, NavSection } from '../AppElements'
+import { BackImg, Container } from '../AppElements'
+import { useAppState } from '../../packs/AppState'
 
 const Grid = styled.div`
   display: grid;
@@ -13,14 +14,13 @@ const Grid = styled.div`
   width: 100%;
   margin: 20px 0 50px;
 `
-const Column = styled.div`
-  
-`
+const Column = styled.div``
 
 const Lesson = (props) => {
   const [lesson, setLesson] = useState({})
   const [review, setReview] = useState({})
   const [loaded, setLoaded] = useState(false)
+  const { state, dispatch } = useAppState()
 
   useEffect(() => {
     const slug = props.match.params.slug
@@ -36,21 +36,22 @@ const Lesson = (props) => {
 
   const handleChange = (e) => {
     e.preventDefault()
-
     setReview(Object.assign({}, review, {[e.target.name]: e.target.value}))
-
     console.log('review:', review)
   }
   
   const handleSubmit = (e) => {
     e.preventDefault()
 
+    const token = state.token
+    // const user = state,
+
     const csrfToken = document.querySelector('[name=csrf-token]').content
     axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
 
     // get lesson id
     const lesson_id = parseInt(lesson.data.id)
-    axios.post('/api/v1/reviews', {review, lesson_id})
+    axios.post('/api/v1/reviews', {review, lesson_id, token})
     .then( resp => {
       const included = [...lesson.included, resp.data.data]
       setLesson({...lesson, included})

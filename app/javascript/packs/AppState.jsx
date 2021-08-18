@@ -6,6 +6,7 @@ const initialState = {
   url: "http://localhost:3000/api/v1",
   token: null,
   username: null,
+  
 }
 
 // Reducer 
