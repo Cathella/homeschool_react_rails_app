@@ -2,11 +2,9 @@ import React, { useState, useEffect, Fragment } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import Header from './Header'
-import Menu from '../Home/Menu'
 import ReviewForm from './ReviewForm'
 import Review from './Review'
 import { Container, NavSection } from '../AppElements'
-import FooterSection from '../Home/Footer'
 
 const Grid = styled.div`
   display: grid;
@@ -87,11 +85,11 @@ const Lesson = (props) => {
 
   return(
     <div>
-      <NavSection>
+      {/* <NavSection>
         <Container>
           <Menu />
         </Container>
-      </NavSection>
+      </NavSection> */}
 
       <Container>
         <Grid>
@@ -119,7 +117,6 @@ const Lesson = (props) => {
           }
         </Grid>
       </Container>
-      <FooterSection />
     </div>
   )
 }

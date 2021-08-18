@@ -6,23 +6,6 @@ const initialState = {
   url: "http://localhost:3000/api/v1",
   token: null,
   username: null,
-  lessons: null,
-  new: {
-    title: "",
-    description: "",
-    grade: "",
-    topic: "",
-    video_url: "",
-    subject: ""
-  },
-  edit: {
-    title: "",
-    description: "",
-    grade: "",
-    topic: "",
-    video_url: "",
-    subject: ""
-  }
 }
 
 // Reducer 
@@ -39,54 +22,9 @@ const reducer = (state, action) => {
       window.localStorage.removeItem("auth")
       return newState;
       break;
-    case "appLessons":
-      newState = { ...state, lessons: action.payload }
-      return newState
-      break;
     default: state;
       break;
   }
-  // switch (action.type) {
-  //   case "signup":
-  //     fetch(state.url + "/users/", {
-  //       method: "post",
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       },
-  //       body: JSON.stringify(action.payload)
-  //     })
-  //     .then(response => response.json())
-  //     .then(user => {
-  //       return {
-  //         ...state,
-  //         token: user.token,
-  //         username: user.username
-  //       }
-  //     })
-  //   break
-
-  //   case "login":
-  //     fetch(state.url + "/login/", {
-  //       method: "post",
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       },
-  //       body: JSON.stringify(action.payload)
-  //     })
-  //     .then(response => response.json())
-  //     .then(user => {
-  //       return {
-  //         ...state,
-  //         token: user.token,
-  //         username: user.username
-  //       }
-  //     })
-  //   break
-
-  //   default:
-  //     return state
-  //     break
-  // }
 }
 
 // AppContext

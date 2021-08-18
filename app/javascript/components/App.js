@@ -4,8 +4,11 @@ import Menu from './Menu'
 import Home from '../packs/pages/Home.jsx'
 import Auth from '../packs/pages/Auth.jsx'
 import Dashboard from '../packs/pages/Dashboard.jsx'
+import Lessons from './Lessons/Lessons'
+import Lesson from './Lesson/Lesson'
 import { Container } from './AppElements'
 import { useAppState } from '../packs/AppState.jsx'
+import FooterSection from './Footer'
 
 const App = (props) => {
   const { state, dispatch } = useAppState()
@@ -23,15 +26,17 @@ const App = (props) => {
   return (
     <>
       <Container>
-      <Route path="/" component={Menu} />
+        <Route path="/" component={Menu} />
+      </Container>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/auth/:form" component={Auth} />
         <Route path="/dashboard" component={Dashboard} />
-        {/* <Route exact path="/lessons" component={Lessons} /> */}
-        {/* <Route exact path="/lessons/:slug" component={Lesson} /> */}
+        <Route path="/lessons" component={Lessons} />
+        <Route path="/lessons/:slug" component={Lesson} />
       </Switch>
-      </Container>
+      
+      <FooterSection />
     </>
   );
 }

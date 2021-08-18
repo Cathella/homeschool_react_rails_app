@@ -3,9 +3,7 @@ import axios from 'axios'
 import Lesson from './Lesson'
 import styled from 'styled-components'
 import { Container, Features, NavSection, LessonCount, Tag, Subheader, SearchTags, SearchForm } from '../AppElements'
-import Menu from '../Home/Menu'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
-import FooterSection from '../Home/Footer'
 
 const Header = styled.div`
   padding: 70px 0 50px 0px;
@@ -41,11 +39,6 @@ const Lessons = () => {
 
   return(
     <div>
-    <NavSection>
-      <Container>
-        <Menu />
-      </Container>
-    </NavSection>
     <Header>
         <Subheader>What do you want to learn today?</Subheader>
         <SearchForm>
@@ -79,7 +72,6 @@ const Lessons = () => {
         {grid}
       </Grid>
     </Container>
-    <FooterSection />
     </div>
   )
 }

@@ -111,6 +111,8 @@ export const BackgroundImg = styled.div`
   background-repeat: no-repeat;
   padding-bottom: 100px;
   background-position: center 15%;
+  // position: relative;
+  // z-index: -20;
 
   @media (min-width: 500px) {
     background-position: center 80%;
@@ -494,20 +496,21 @@ export const About = styled.div`
 `
 export const Form = styled.form`
   position: relative;
-  margin: 2em auto;
+  margin: 2em auto 0;
   border: 1.4px solid gray;
-  padding: 3em 0;
+  padding: 3em 0 4em;
   display: flex;
   flex-direction: column;
   width: 30%;
   border-radius: 30px;
-  background: #ffeeef;
+  background: #ffeeef;z
+  z-index: 10;
 
   input {
     height: 45px;
     border-radius: 10px;
     border: 1.4px solid gray;
-    margin: 0 3em 1.2em;
+    margin: 0 3.5em 1.2em;
     padding: 0 1em;
 
     :focus {
@@ -527,18 +530,6 @@ export const Form = styled.form`
     border-radius: 25px;
   }
 
-  div {
-    background: white;
-    height: 322px;
-    width: 100%;
-    border: 1.4px dashed gray;
-    position: absolute;
-    top: 10px;
-    left: 8px;
-    border-radius: 40px;
-    z-index: -10;
-  }
-
   label {
     text-align: center;
     font-size: 1.4em;
@@ -546,6 +537,18 @@ export const Form = styled.form`
     font-weight: bold;
     text-transform: capitalize;
   }
+`
+export const Backdiv = styled.div`
+background: white;
+height: 338px;
+width: 30%;
+border: 1.4px dashed gray;
+position: absolute;
+margin: 2em auto 0;
+top: 10px;
+left: 8px;
+border-radius: 40px;
+z-index: -10;
 `
 
 const AppElements = () => {

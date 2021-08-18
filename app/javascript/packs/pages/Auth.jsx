@@ -1,6 +1,6 @@
 import React from 'react'
 import { useAppState } from "../AppState.jsx"
-import { Form } from '../../components/AppElements.js';
+import { Form, BackgroundImg, Backdiv } from '../../components/AppElements.js';
 
 const Auth = (props) => {
   const type = props.match.params.form;
@@ -60,6 +60,7 @@ const Auth = (props) => {
 
   return(
     <div>
+      <BackgroundImg>
       <Form onSubmit={handleSubmit}>
         <label>{type}</label>
         <input 
@@ -80,8 +81,9 @@ const Auth = (props) => {
           type="submit"  
           value={type} 
         />
-        <div></div>
       </Form>
+      <Backdiv></Backdiv>
+    </BackgroundImg>
     </div>
   )
 }

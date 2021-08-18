@@ -17,7 +17,7 @@ const Menu = (props) => {
       </NavLink>
       <Bars><img src={Bar} /></Bars>
       <NavMenu>
-        <NavLink to="/dashboard">Children</NavLink>
+        <NavLink to="/lessons">Children</NavLink>
         {!state.token ? (<><NavLink to="/auth/login">Login</NavLink>
         <NavBtn>
           <NavBtnLink to="/auth/signup">Signup</NavBtnLink>

@@ -1,16 +1,18 @@
 import React, { Fragment } from 'react'
-import { useAppState } from '../packs/AppState.jsx'
 
 const LessonForm = (props) => {
-  const {state, dispatch} = useAppState()
-  const action = props.match.params.action
-  const [formData, setFormData] = React.useState(state[action])
 
   return(
     <div>
-      <form>
+      {/* <form onSubmit={handleSubmit}>
         <input type="text" name="title" value={formData.title} onChange={handleChange} />
-      </form>
+        <input type="text" name="description" value={formData.description} onChange={handleChange} />
+        <input type="text" name="video_url" value={formData.video_url} onChange={handleChange} />
+        <input type="text" name="grade" value={formData.grade} onChange={handleChange} />
+        <input type="text" name="subject" value={formData.subject} onChange={handleChange} />
+        <input type="text" name="topic" value={formData.topic} onChange={handleChange} />
+        <input type="submit" value={action} />
+      </form> */}
     </div>
   )
 }
