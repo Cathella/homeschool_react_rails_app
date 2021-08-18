@@ -1,12 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
-import { Video, LessonTitle, Tag, About, BackImg } from '../AppElements'
+import { Video, LessonTitle, Tag, About } from '../AppElements'
 import Rating from '../Rating/Rating'
 
 const Describe = styled.div`
   font-size: 14px;
   margin: 1rem 0 2rem;
+`
+const Title = styled.div`
+  font-size: 17px;
+  margin: 1rem 0;
+  font-weight: bold;
 `
 const Reviews = styled.div`
   font-size: 14px;
@@ -28,7 +32,7 @@ const Header = (props) => {
           src={`https://www.youtube.com/embed/${video_url}`}>
         </iframe>
       </Video>
-      <LessonTitle>{title}</LessonTitle>
+      <Title>{title}</Title>
       <About>
         <Tag>{props.attributes.subject}</Tag>
         <Tag>{props.attributes.grade}</Tag>

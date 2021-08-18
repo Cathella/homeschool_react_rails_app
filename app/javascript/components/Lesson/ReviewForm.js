@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Gray from './Stars/Gray'
 import Hover from './Stars/Hover'
 import Selected from './Stars/Selected'
-import { Form } from '../AppElements'
 
 const RatingContainer = styled.div`
   text-align: center;
@@ -72,7 +71,7 @@ const Wrapper = styled.div`
   margin: 20px 0 0 0;
   border: 1.4px dashed gray;
   border-radius: 20px;
-  background: #ffeeef;
+  background: #d4ebea;
   padding-bottom: 60px;
 `
 const SubmitBtn = styled.button`
