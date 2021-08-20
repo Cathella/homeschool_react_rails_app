@@ -5,9 +5,18 @@ import Background from 'images/bg-purple.svg'
 
 const Auth = (props) => {
   const type = props.match.params.form;
+
   const [formData, setFormData] = React.useState({
     username: "",
     password: "",
+  });
+
+  const [signupData, setSignupData] = React.useState({
+    username: "",
+    password: "",
+    grade: "",
+    age: "",
+    phone: ""
   });
 
   const [userData, setUserData] = React.useState(null);
@@ -34,7 +43,7 @@ const Auth = (props) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(signupData),
       }).then((response) => response.json());
     },
     login: () => {
@@ -48,8 +57,12 @@ const Auth = (props) => {
     },
   };
 
-  const handleChange = (event) => {
+  const handleLoginChange = (event) => {
     setFormData({...formData, [event.target.name] : event.target.value})
+  }
+
+  const handleSignupChange = (event) => {
+    setSignupData({...signupData, [event.target.name] : event.target.value})
   }
 
   const handleSubmit = (event) => {
@@ -68,14 +81,57 @@ const Auth = (props) => {
           name="username"
           placeholder="Username"
           value={formData.username} 
-          onChange={handleChange} 
+          onChange={handleLoginChange} 
         />
         <input 
           type="password" 
           name="password"
           placeholder="Password" 
           value={formData.password} 
-          onChange={handleChange} 
+          onChange={handleLoginChange} 
+        />
+        <input 
+          type="submit"  
+          value={type} 
+        />
+        <div></div>
+      </Form>
+      <Form onSubmit={handleSubmit}>
+        <label>{type}</label>
+        <input 
+          type="text" 
+          name="username"
+          placeholder="Username"
+          value={signupData.username} 
+          onChange={handleSignupChange} 
+        />
+        <input 
+          type="tel" 
+          name="phone"
+          placeholder="Phone Number"
+          value={signupData.phone} 
+          onChange={handleSignupChange} 
+        />
+        <input 
+          type="number" 
+          name="age"
+          placeholder="Age"
+          value={signupData.age} 
+          onChange={handleSignupChange} 
+        />
+        <input 
+          type="text" 
+          name="grade"
+          placeholder="Grade"
+          value={signupData.grade}
+          onChange={handleSignupChange} 
+        />
+        <input 
+          type="password" 
+          name="password"
+          placeholder="Password" 
+          value={signupData.password} 
+          onChange={handleSignupChange} 
         />
         <input 
           type="submit"  

@@ -21,10 +21,10 @@ const Home = () => {
               </h1>
               <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
               <CallToAction>
-              <Link to={``}>
+              <Link to={`/auth/signup`}>
                 <GetstartedBtn>Get&nbsp;started</GetstartedBtn> 
               </Link>
-              <Link to={``}>
+              <Link to={`/auth/login`}>
                 <UpscaleBtn>Upscale</UpscaleBtn>
               </Link>
             </CallToAction>
@@ -56,7 +56,7 @@ const Home = () => {
                 </h2>
                 <p>Sign up for customized learning and access to discussions, tests and quizzes.</p>
                 <CallToAction>
-                  <Link to={``}>
+                  <Link to={`/auth/signup`}>
                     <GetstartedBtn>Register a Student</GetstartedBtn> 
                   </Link>
                 </CallToAction>
@@ -80,7 +80,7 @@ const Home = () => {
               </h2>
               <p>Start a discussion about a topic or a lesson you just watched.</p>
               <CallToAction>
-                <Link to={``}>
+                <Link to={`/auth/login`}>
                   <GetstartedBtn>Join Discussions</GetstartedBtn> 
                 </Link>
               </CallToAction>
@@ -98,7 +98,7 @@ const Home = () => {
                 </h2>
                 <p>Students can try out practise examinations to know how much they have learned.</p>
                 <CallToAction>
-                  <Link to={``}>
+                  <Link to={`/auth/login`}>
                     <GetstartedBtn>Attempt Quizzes</GetstartedBtn> 
                   </Link>
                 </CallToAction>

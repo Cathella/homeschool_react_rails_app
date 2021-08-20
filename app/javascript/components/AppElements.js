@@ -36,6 +36,7 @@ export const GetstartedBtn = styled.div`
   padding: 16px 30px;
   margin-right: 25px;
   background: linear-gradient(94.53deg, #917AEB 8.02%, #00C0ED 142.37%);
+  pointer: cursor;
 `
 export const UpscaleBtn = styled.div`
   font-weight: bold;
@@ -45,6 +46,7 @@ export const UpscaleBtn = styled.div`
   border-radius: 10px;
   padding: 14px 30px;
   background: transparent;
+  pointer: cursor;
 `
 export const Header = styled.div`
   display: grid;

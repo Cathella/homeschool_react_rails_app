@@ -43,15 +43,17 @@ const Lesson = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    const token = state.token
-    // const user = state,
+    // const token = state.token
+    // const user = state.username
 
     const csrfToken = document.querySelector('[name=csrf-token]').content
     axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken
 
     // get lesson id
     const lesson_id = parseInt(lesson.data.id)
-    axios.post('/api/v1/reviews', {review, lesson_id, token})
+    const user_id = parseInt(user.data.id)
+
+    axios.post('/api/v1/reviews', {review, lesson_id, user_id})
     .then( resp => {
       const included = [...lesson.included, resp.data.data]
       setLesson({...lesson, included})
