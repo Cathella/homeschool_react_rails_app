@@ -1,13 +1,16 @@
 import React from 'react'
 import { useAppState } from "../AppState.jsx"
-import { Form, BackImg } from '../../components/AppElements.js';
+import { RegisterForm, BackImg } from '../../components/AppElements.js';
 
-const Auth = (props) => {
+const Signup = (props) => {
   const type = props.match.params.form;
 
-  const [formData, setFormData] = React.useState({
+  const [signupData, setSignupData] = React.useState({
     username: "",
     password: "",
+    grade: "",
+    age: "",
+    phone: ""
   });
 
   const [userData, setUserData] = React.useState(null);
@@ -28,55 +31,69 @@ const Auth = (props) => {
   }, [userData]);
 
   const actions = {
-    login: () => {
-      return fetch(state.url + "/login", {
+    signup: () => {
+      return fetch(state.url + "/users", {
         method: "post",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(signupData),
       }).then((response) => response.json());
-    },
+    }
   };
 
-  const handleLoginChange = (event) => {
-    setFormData({...formData, [event.target.name] : event.target.value})
+  const handleSignupChange = (event) => {
+    setSignupData({...signupData, [event.target.name] : event.target.value})
   }
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    actions["login"]().then((data) => {
+    actions["signup"]().then((data) => {
       setUserData(data)
     })
   }
 
   return(
     <div>
-      <Form onSubmit={handleSubmit}>
-        <label>Login</label>
+      <RegisterForm onSubmit={handleSubmit}>
+        <label>Register</label>
         <input 
           type="text" 
           name="username"
           placeholder="Username"
-          value={formData.username} 
-          onChange={handleLoginChange} 
+          value={signupData.username} 
+          onChange={handleSignupChange} 
+        />
+        <input 
+          type="tel" 
+          name="phone"
+          placeholder="Phone Number"
+          value={signupData.phone} 
+          onChange={handleSignupChange} 
+        />
+        <input 
+          type="text" 
+          name="grade"
+          placeholder="Class"
+          value={signupData.grade}
+          onChange={handleSignupChange} 
         />
         <input 
           type="password" 
           name="password"
           placeholder="Password" 
-          value={formData.password} 
-          onChange={handleLoginChange} 
+          value={signupData.password} 
+          onChange={handleSignupChange} 
         />
         <input 
           type="submit"  
-          value="Login" 
+          value="Sign up" 
         />
         <div></div>
-      </Form>
+      </RegisterForm>
       <BackImg></BackImg>
     </div>
   )
 }
 
-export default Auth 
+export default Signup 

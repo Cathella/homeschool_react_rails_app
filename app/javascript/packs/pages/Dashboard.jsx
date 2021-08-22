@@ -59,7 +59,7 @@ const Dashboard = (props) => {
     <div>
       <Container>
         <Header>
-          <h2>Welcome, dear student {state.username}!</h2>
+          <h2>Welcome, student {state.username}!</h2>
           <div>
             <Grade>Grade: Primary One</Grade>
           </div>

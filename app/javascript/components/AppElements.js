@@ -554,6 +554,61 @@ export const Form = styled.form`
     z-index: -10;
   }
 `
+export const RegisterForm = styled.form`
+  position: relative;
+  margin: 2em auto 6em;
+  border: 1.4px solid gray;
+  padding: 3em 0 4em;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border-radius: 30px;
+  background: #ffeeef;
+
+  input {
+    height: 45px;
+    border-radius: 10px;
+    border: 1.4px solid gray;
+    margin: 0 3.5em 1.2em;
+    padding: 0 1em;
+
+    :focus {
+      outline: none;
+      background: #f2f5c6;
+    }
+  }
+
+  input[type=submit] {
+    border: 0;
+    font-weight: bold;
+    margin-bottom: 0;
+    background: #FA64A9;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    height: 50px;
+    border-radius: 25px;
+  }
+
+  label {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  div {
+    background: white;
+    height: 465px;
+    width: 100%;
+    border: 1.4px dashed gray;
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    border-radius: 40px;
+    z-index: -10;
+  }
+`
 export const BackImg = styled.div`
   background-image: url(${Background});
   background-repeat: no-repeat;
