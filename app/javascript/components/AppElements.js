@@ -36,6 +36,7 @@ export const GetstartedBtn = styled.div`
   padding: 16px 30px;
   margin-right: 25px;
   background: linear-gradient(94.53deg, #917AEB 8.02%, #00C0ED 142.37%);
+  pointer: cursor;
 `
 export const UpscaleBtn = styled.div`
   font-weight: bold;
@@ -45,6 +46,7 @@ export const UpscaleBtn = styled.div`
   border-radius: 10px;
   padding: 14px 30px;
   background: transparent;
+  pointer: cursor;
 `
 export const Header = styled.div`
   display: grid;
@@ -111,6 +113,8 @@ export const BackgroundImg = styled.div`
   background-repeat: no-repeat;
   padding-bottom: 100px;
   background-position: center 15%;
+  // position: relative;
+  // z-index: -20;
 
   @media (min-width: 500px) {
     background-position: center 80%;
@@ -382,20 +386,38 @@ export const LessonCount = styled.div`
   font-weight: bold;
 `
 export const LessonVideo = styled.div`
+  position: relative;
+
   iframe {
-    width: 100%;
+    width: 99.5%;
     height: 190px;
     border: 1px solid #fefefe;
     border-radius: 10px 10px 0 0;
+    position: relative;
+    top: 0;
+  }
+
+  a {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 10px;
+  }
+
+  div {
+    height: 180px;
+    background: red;
+    opacity: 0;
   }
 `
 export const Video = styled.div`
+  margin: 15px auto 10px;
+
   iframe {
     width: 100%;
     height: 380px;
-    margin: 15px auto 10px;
     border: 1px solid #fefefe;
-    border-radius: 10px;
+    border-radius: 15px;
   }
 `
 export const Subheader = styled.div`
@@ -404,8 +426,8 @@ export const Subheader = styled.div`
 `
 export const Tag = styled.div`
   text-decoration: none;
-  font-size: 13px;
-  background: #917aeb;
+  font-size: 12px;
+  background: #49afab;
   color: white;
   padding: 2px 10px;
   border-radius: 4px;
@@ -471,9 +493,143 @@ export const About = styled.div`
   padding: 0 0 10px;
 
   div {
-    background: #ffa4ce;
+    background: white;
     color: black;
+    border: 1px solid black;
+    cursor: help;
   }
+`
+export const Form = styled.form`
+  position: relative;
+  margin: 2em auto 6em;
+  border: 1.4px solid gray;
+  padding: 3em 0 4em;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border-radius: 30px;
+  background: #ffeeef;
+
+  input {
+    height: 45px;
+    border-radius: 10px;
+    border: 1.4px solid gray;
+    margin: 0 3.5em 1.2em;
+    padding: 0 1em;
+
+    :focus {
+      outline: none;
+      background: #f2f5c6;
+    }
+  }
+
+  input[type=submit] {
+    border: 0;
+    font-weight: bold;
+    margin-bottom: 0;
+    background: #FA64A9;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    height: 50px;
+    border-radius: 25px;
+  }
+
+  label {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  div {
+    background: white;
+    height: 338px;
+    width: 100%;
+    border: 1.4px dashed gray;
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    border-radius: 40px;
+    z-index: -10;
+  }
+`
+export const RegisterForm = styled.form`
+  position: relative;
+  margin: 2em auto 6em;
+  border: 1.4px solid gray;
+  padding: 3em 0 4em;
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  border-radius: 30px;
+  background: #ffeeef;
+
+  input {
+    height: 45px;
+    border-radius: 10px;
+    border: 1.4px solid gray;
+    margin: 0 3.5em 1.2em;
+    padding: 0 1em;
+
+    :focus {
+      outline: none;
+      background: #f2f5c6;
+    }
+  }
+
+  input[type=submit] {
+    border: 0;
+    font-weight: bold;
+    margin-bottom: 0;
+    background: #FA64A9;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    height: 50px;
+    border-radius: 25px;
+  }
+
+  label {
+    text-align: center;
+    font-size: 1.4em;
+    margin-bottom: 1em;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+  div {
+    background: white;
+    height: 465px;
+    width: 100%;
+    border: 1.4px dashed gray;
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    border-radius: 40px;
+    z-index: -10;
+  }
+`
+export const BackImg = styled.div`
+  background-image: url(${Background});
+  background-repeat: no-repeat;
+  height: 300px;
+  background-position: center 0%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -20;
+  transform: rotate(180deg);
+`
+export const BackBlueImg = styled.div`
+  background-image: url(${BackgroundBlue});
+  background-repeat: no-repeat;
+  height: 250px;
+  background-position: center 0%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: -20;
+  transform: rotate(180deg);
 `
 
 const AppElements = () => {

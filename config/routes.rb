@@ -7,6 +7,10 @@ Rails.application.routes.draw do
       resources :lessons, param: :slug
       resources :reviews, only: [:create, :destroy]
       # resources :comments, only: [:create, :destroy]
+
+      resource :users, only: [:create]
+      post "/login", to: "users#login"
+      get "/auto_login", to: "users#auto_login"
     end
   end
   

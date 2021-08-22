@@ -1,5 +1,5 @@
 import React from 'react'
-import { Footer } from '../AppElements'
+import { Footer } from './AppElements'
 
 const FooterSection = () => {
   return(

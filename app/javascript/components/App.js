@@ -1,20 +1,43 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Home from './Home/Home'
+import Menu from './Menu'
+import Home from '../packs/pages/Home.jsx'
+import Auth from '../packs/pages/Auth.jsx'
+import Signup from '../packs/pages/Signup'
+import Dashboard from '../packs/pages/Dashboard.jsx'
 import Lessons from './Lessons/Lessons'
 import Lesson from './Lesson/Lesson'
-import Teachers from './Teachers/Teachers'
-import Teacher from './Teacher/Teacher'
+import { Container } from './AppElements'
+import { useAppState } from '../packs/AppState.jsx'
+import FooterSection from './Footer'
 
-const App = () => {
+const App = (props) => {
+  const { state, dispatch } = useAppState()
+  React.useState(() => {
+    const auth = JSON.parse(window.localStorage.getItem("auth"))
+    
+    if (auth) {
+      dispatch({type: "auth", payload: auth})
+      props.history.push("/dashboard")
+    } else {
+      props.history.push("/")
+    }
+  }, [])
+
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/lessons" component={Lessons} />
-      <Route exact path="/lessons/:slug" component={Lesson} />
-      <Route exact path="/teachers" component={Teachers} />
-      <Route exact path="/teachers/:slug" component={Teacher} />
-    </Switch>
+    <>
+      <Container>
+        <Route path="/" component={Menu} />
+      </Container>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/auth/login" component={Auth} />
+        <Route path="/auth/signup" component={Signup} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/lessons/:slug" component={Lesson} />
+      </Switch>
+      <FooterSection />
+    </>
   );
 }
 

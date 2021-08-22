@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 2021_07_29_222505) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: :cascade do |t|
-    t.text "body"
-    t.string "author"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "lessons", force: :cascade do |t|
     t.string "title"
     t.string "video_url"
@@ -30,25 +23,34 @@ ActiveRecord::Schema.define(version: 2021_07_29_222505) do
     t.string "subject"
     t.string "grade"
     t.string "slug"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
     t.text "description"
     t.integer "score"
     t.bigint "lesson_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lesson_id"], name: "index_reviews_on_lesson_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "teachers", force: :cascade do |t|
-    t.string "name"
-    t.string "slug"
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "password_digest"
+    t.string "phone"
+    t.string "grade"
+    t.integer "age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "lessons", "users"
   add_foreign_key "reviews", "lessons"
+  add_foreign_key "reviews", "users"
 end

@@ -1,21 +1,24 @@
 import React from 'react'
 import styled from 'styled-components'
-import { BrowserRouter as Router, Link } from 'react-router-dom'
 import { Video, LessonTitle, Tag, About } from '../AppElements'
+import Rating from '../Rating/Rating'
 
 const Describe = styled.div`
-  background: #eeeeee;
-  padding: 0.8rem 1rem;
-  border-radius: 5px;
   font-size: 14px;
-  margin-bottom: 2rem;
+  margin: 1rem 0 2rem;
+`
+const Title = styled.div`
+  font-size: 17px;
+  margin: 1rem 0;
+  font-weight: bold;
 `
 const Reviews = styled.div`
   font-size: 14px;
   margin: 20px 0;
   padding: 20px 0 0 0;
-  border-top: 1px solid #ddd;
-  font-weight: bold;
+  border-top: 1px solid black;
+  font-size: 15px;
+  text-align: right;
 `
 
 const Header = (props) => {
@@ -29,7 +32,7 @@ const Header = (props) => {
           src={`https://www.youtube.com/embed/${video_url}`}>
         </iframe>
       </Video>
-      <LessonTitle>{title}</LessonTitle>
+      <Title>{title}</Title>
       <About>
         <Tag>{props.attributes.subject}</Tag>
         <Tag>{props.attributes.grade}</Tag>
@@ -39,9 +42,8 @@ const Header = (props) => {
         {description}
       </Describe>
       <Reviews>
-        <div className="star_rating"></div>
-        {/* <div className="total_out_of">Review score: <span>{average_score} out of 5.</span> <i>({total} Reviews)</i></div> */}
-        <div className="total_out_of">{total} Reviews</div>
+        <div className="star_rating"><Rating score={props.attributes.average_score} /></div>
+        <div className="total_out_of">{average_score}/5 (Based on {total} Reviews)</div>
       </Reviews>
     </div>
   )

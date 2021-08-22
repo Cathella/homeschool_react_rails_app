@@ -6,10 +6,10 @@ import Rating from '../Rating/Rating'
 
 const LinkWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 10px 12px 20px;
-  font-size: 14px;
+  font-size: 17px;
   border-top: 1px solid #000;
   
   a {
@@ -18,11 +18,19 @@ const LinkWrapper = styled.div`
     color: black;
     padding: 5px 10px;
     border-radius: 5px;
+    border: 1.3px dashed black;
+    box-shadow: -4px 4px 0px rgba(0,0,0,0.1)
+  }
+
+  span {
+    font-size: 16px;
   }
 `
 const Card = styled.div`
-  background: #eee6fd;
+  background: #ffeeef;
+  border: 1.4px dashed gray;
   border-radius: 10px;
+  position: relative;
 `
 const ContentPad = styled.div`
   padding: 0 12px;
@@ -35,6 +43,9 @@ const Lesson = (props) => {
         <iframe
           src={`https://www.youtube.com/embed/${props.attributes.video_url}`}>
         </iframe>
+        <Link to={`/lessons/${props.attributes.slug}`}>
+          <div></div>
+        </Link>
       </LessonVideo>
       <ContentPad>  
         <LessonTitle>{props.attributes.title}</LessonTitle>
@@ -43,12 +54,13 @@ const Lesson = (props) => {
           <Tag>{props.attributes.grade}</Tag>
           <Tag>{props.attributes.topic}</Tag>
         </About>
-      </ContentPad> 
+      </ContentPad>
+
       <LinkWrapper>
         <Rating score={props.attributes.average_score} />
-        <Link to={`/lessons/${props.attributes.slug}`}>
+        {/* <Link to={`/lessons/${props.attributes.slug}`}>
           View lesson
-        </Link>
+        </Link> */}
       </LinkWrapper>
     </Card>
   )
