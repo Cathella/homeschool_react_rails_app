@@ -563,7 +563,7 @@ export const RegisterForm = styled.form`
   flex-direction: column;
   width: 30%;
   border-radius: 30px;
-  background: #ffeeef;
+  background: #e6f4f4;
 
   input {
     height: 45px;
@@ -599,7 +599,7 @@ export const RegisterForm = styled.form`
 
   div {
     background: white;
-    height: 465px;
+    height: 401px;
     width: 100%;
     border: 1.4px dashed gray;
     position: absolute;
