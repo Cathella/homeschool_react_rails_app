@@ -65,13 +65,6 @@ const Signup = (props) => {
           onChange={handleSignupChange} 
         />
         <input 
-          type="tel" 
-          name="phone"
-          placeholder="Phone Number"
-          value={signupData.phone} 
-          onChange={handleSignupChange} 
-        />
-        <input 
           type="text" 
           name="grade"
           placeholder="Class"
