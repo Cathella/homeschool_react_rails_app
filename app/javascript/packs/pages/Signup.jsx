@@ -64,13 +64,16 @@ const Signup = (props) => {
           value={signupData.username} 
           onChange={handleSignupChange} 
         />
-        <input 
-          type="text" 
-          name="grade"
-          placeholder="Class"
-          value={signupData.grade}
-          onChange={handleSignupChange} 
-        />
+        <select name="grade">
+          <option value="Preschool">Preschool</option>
+          <option value="Primary One">Primary One</option>
+          <option value="Primary Two">Primary Two</option>
+          <option value="Primary Three">Primary Three</option>
+          <option value="Primary Four">Primary Four</option>
+          <option value="Primary Five">Primary Five</option>
+          <option value="Primary Six">Primary Six</option>
+          <option value="Primary Seven">Primary Seven</option>
+        </select>
         <input 
           type="password" 
           name="password"

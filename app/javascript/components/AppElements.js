@@ -578,6 +578,19 @@ export const RegisterForm = styled.form`
     }
   }
 
+  select {
+    height: 45px;
+    border-radius: 10px;
+    border: 1.4px solid gray;
+    margin: 0 3.5em 1.2em;
+    padding: 0 1em;
+
+    :focus {
+      outline: none;
+      background: #f2f5c6;
+    }
+  }
+
   input[type=submit] {
     border: 0;
     font-weight: bold;
