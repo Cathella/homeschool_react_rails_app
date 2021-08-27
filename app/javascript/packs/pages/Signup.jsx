@@ -64,7 +64,7 @@ const Signup = (props) => {
           value={signupData.username} 
           onChange={handleSignupChange} 
         />
-        <select name="grade">
+        <select name="grade" selected={signupData.grade} onChange={handleSignupChange}>
           <option value="Preschool">Preschool</option>
           <option value="Primary One">Primary One</option>
           <option value="Primary Two">Primary Two</option>

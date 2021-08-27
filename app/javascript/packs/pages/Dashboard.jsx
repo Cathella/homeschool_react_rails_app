@@ -2,7 +2,8 @@ import React from 'react'
 import { Container, BackBlueImg, GetstartedBtn } from '../../components/AppElements'
 import styled from 'styled-components'
 import Lessons from '../../components/Lessons/Lessons'
-import { BrowserRouter, Link } from 'react-router-dom'
+import LessonForm from '../../components/Lesson/LessonForm'
+import { BrowserRouter, Link, Route } from 'react-router-dom'
 import { useAppState } from '../AppState.jsx'
 
 const Header = styled.div`
@@ -35,7 +36,7 @@ const Subjects = styled.div`
 
   a {
     text-decoration: none;
-    line-height: 100px;
+    line-height: 60px;
     border: 1.4px dashed gray;
     background: white;
     border-radius: 10px;
@@ -48,18 +49,19 @@ const Subjects = styled.div`
   }
 
   div {
-    height: 100px;
+    height: 60px;
   }
 `
 
 const Dashboard = (props) => {
-  const { state, dispatch } = useAppState()
+  // const { state, dispatch } = useAppState()
+  // const {token, url, lessons, username} = state
 
   return(
     <div>
       <Container>
         <Header>
-          <h2>Welcome, student {state.username}!</h2>
+          <h2>Welcome, student</h2>
           <div>
             <Grade>Grade: Primary One</Grade>
           </div>
@@ -93,7 +95,16 @@ const Dashboard = (props) => {
           <div>Topic Quizzes</div>
           </Link>
         </Subjects>
+        <div>
+          New lesson?
+          <Link to="/dashboard/new">
+            <button>New Lesson</button>
+          </Link>
+          <Route path="/dashboard/new" component={LessonForm}></Route>
+        </div>
+        <h2>Suggested Lessons</h2>
         <Lessons />
+
       </Container>
       <BackBlueImg></BackBlueImg>
     </div>
