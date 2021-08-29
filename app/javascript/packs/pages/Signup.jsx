@@ -9,7 +9,6 @@ const Signup = (props) => {
     username: "",
     password: "",
     grade: "",
-    age: "",
     phone: ""
   });
 
@@ -23,7 +22,7 @@ const Signup = (props) => {
       const { token, user } = userData;
       dispatch({ type: "auth", payload: { token, username: user.username }});
       window.localStorage.setItem(
-        "auth",
+        "signup",
         JSON.stringify({ token, username: user.username })
       );
       props.history.push("/dashboard");
@@ -64,13 +63,16 @@ const Signup = (props) => {
           value={signupData.username} 
           onChange={handleSignupChange} 
         />
-        <input 
-          type="text" 
-          name="grade"
-          placeholder="Class"
-          value={signupData.grade}
-          onChange={handleSignupChange} 
-        />
+        <select name="grade" selected={signupData.grade} onChange={handleSignupChange}>
+          <option value="Preschool">Preschool</option>
+          <option value="Primary One">Primary One</option>
+          <option value="Primary Two">Primary Two</option>
+          <option value="Primary Three">Primary Three</option>
+          <option value="Primary Four">Primary Four</option>
+          <option value="Primary Five">Primary Five</option>
+          <option value="Primary Six">Primary Six</option>
+          <option value="Primary Seven">Primary Seven</option>
+        </select>
         <input 
           type="password" 
           name="password"

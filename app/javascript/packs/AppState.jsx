@@ -3,10 +3,11 @@ import React from 'react'
 
 // initialState
 const initialState = {
-  url: "https://stark-journey-70583.herokuapp.com/api/v1",
+  // url: "https://stark-journey-70583.herokuapp.com/api/v1",
+  url: "http://localhost:3000/api/v1",
   token: null,
   username: null,
-  id: 0,
+  lessons: null
 }
 
 // Reducer 
@@ -15,6 +16,10 @@ const reducer = (state, action) => {
   let newState;
   switch (action.type) {
     case "auth":
+      newState = { ...state, ...action.payload }
+      return newState;
+      break;
+    case "signup":
       newState = { ...state, ...action.payload }
       return newState;
       break;

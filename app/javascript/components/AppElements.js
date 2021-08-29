@@ -565,7 +565,7 @@ export const RegisterForm = styled.form`
   border-radius: 30px;
   background: #e6f4f4;
 
-  input {
+  input, select {
     height: 45px;
     border-radius: 10px;
     border: 1.4px solid gray;
