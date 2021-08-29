@@ -9,7 +9,6 @@ const Signup = (props) => {
     username: "",
     password: "",
     grade: "",
-    age: "",
     phone: ""
   });
 
@@ -23,7 +22,7 @@ const Signup = (props) => {
       const { token, user } = userData;
       dispatch({ type: "auth", payload: { token, username: user.username }});
       window.localStorage.setItem(
-        "auth",
+        "signup",
         JSON.stringify({ token, username: user.username })
       );
       props.history.push("/dashboard");

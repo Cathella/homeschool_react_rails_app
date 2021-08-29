@@ -7,8 +7,7 @@ const initialState = {
   url: "http://localhost:3000/api/v1",
   token: null,
   username: null,
-  lessons: null,
-  user: 0
+  lessons: null
 }
 
 // Reducer 
@@ -17,6 +16,10 @@ const reducer = (state, action) => {
   let newState;
   switch (action.type) {
     case "auth":
+      newState = { ...state, ...action.payload }
+      return newState;
+      break;
+    case "signup":
       newState = { ...state, ...action.payload }
       return newState;
       break;
